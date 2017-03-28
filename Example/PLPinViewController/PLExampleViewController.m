@@ -24,6 +24,7 @@
     // configure the appearance
     PLPinAppearance *pinAppearance = [PLPinAppearance defaultAppearance];
     pinAppearance.backgroundColor = [UIColor lightGrayColor];
+    pinAppearance.statusBarStyle = UIStatusBarStyleLightContent;
     [PLPinWindow defaultInstance].pinAppearance = pinAppearance;
 }
 

@@ -31,5 +31,6 @@
 @property (nonatomic, strong) UIFont *messageFont;
 @property (nonatomic, strong) UIColor *messageColor;
 
+@property (nonatomic, assign) UIStatusBarStyle statusBarStyle;
 
 @end

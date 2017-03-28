@@ -78,6 +78,11 @@
     [self performSegueWithIdentifier:@"showEnterPin" sender:nil];
 }
 
+- (UIStatusBarStyle)preferredStatusBarStyle
+{
+    return [[PLPinWindow defaultInstance].pinAppearance statusBarStyle];
+}
+
 -(void)viewDidLayoutSubviews
 {
     for (PLStyleButton *button in self.numberButtons)

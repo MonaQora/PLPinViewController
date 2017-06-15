@@ -36,7 +36,8 @@
     PLPinViewController *vc = (PLPinViewController*)[PLPinWindow defaultInstance].rootViewController;
     vc.pinDelegate = delegate;
     vc.enableCancel = enableCancel;
-
+    vc.pinLength = 4;
+    
     switch (action) {
         case PLPinViewControllerActionCreate:
             vc.initialIdentifier = @"showCreatePin";
@@ -51,7 +52,36 @@
         default:
             break;
     }
+    
+    if (vc.initialIdentifier  && [vc isViewLoaded] && vc.view.window)
+    {
+        [vc performSegueWithIdentifier:vc.initialIdentifier sender:nil];
+    }
+    [[PLPinWindow defaultInstance] showAnimated:animated];
+}
 
++ (void)showControllerWithAction:(PLPinViewControllerAction)action enableCancel:(BOOL)enableCancel  pinLength:(NSInteger)pinLength delegate:(id<PLPinViewControllerDelegate>)delegate animated:(BOOL)animated
+{
+    PLPinViewController *vc = (PLPinViewController*)[PLPinWindow defaultInstance].rootViewController;
+    vc.pinDelegate = delegate;
+    vc.enableCancel = enableCancel;
+    vc.pinLength = pinLength;
+    
+    switch (action) {
+        case PLPinViewControllerActionCreate:
+            vc.initialIdentifier = @"showCreatePin";
+            break;
+        case PLPinViewControllerActionChange:
+            vc.initialIdentifier = @"showChangePin";
+            break;
+        case PLPinViewControllerActionEnter:
+            vc.initialIdentifier = @"showEnterPin";
+            break;
+            
+        default:
+            break;
+    }
+    
     if (vc.initialIdentifier  && [vc isViewLoaded] && vc.view.window)
     {
         [vc performSegueWithIdentifier:vc.initialIdentifier sender:nil];
@@ -68,13 +98,13 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     [self setupAppearance];
-
+    
     if (self.initialIdentifier)
     {
         [self performSegueWithIdentifier:self.initialIdentifier sender:nil];
         return;
     }
-
+    
     [self performSegueWithIdentifier:@"showEnterPin" sender:nil];
 }
 
@@ -89,7 +119,7 @@
     {
         button.cornerRadius = button.bounds.size.width / 2.0f;
     }
-
+    
 }
 
 -(void)setupAppearance
@@ -109,7 +139,7 @@
     }
     
     [self.deleteButton setTintColor:appearance.deleteButtonColor];
-
+    
     if (IS_SHORTSCREEN)
     {
         self.keypadHeightConstraint.constant = 160;
@@ -119,7 +149,7 @@
         self.keypadHeightConstraint.constant = 240;
     }
     
-    id dotAppearance = [PLFormPinDot appearanceWhenContainedInInstancesOfClasses:@[[PLPinWindow class]]];    
+    id dotAppearance = [PLFormPinDot appearanceWhenContainedInInstancesOfClasses:@[[PLPinWindow class]]];
     [dotAppearance setUnselectedBorderColor:[UIColor clearColor]];
     [dotAppearance setHighlightedBorderColor:[UIColor clearColor]];
     [dotAppearance setSelectedBorderColor:appearance.pinHighlightedColor];
@@ -127,7 +157,7 @@
     [dotAppearance setUnselectedColor:appearance.pinFillColor];
     [dotAppearance setHighlightedColor:appearance.pinFillColor];
     [dotAppearance setSelectedColor:appearance.pinHighlightedColor];
-
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -206,7 +236,7 @@
     {
         [self.view addSubview:viewControllerToPresent.view];
         [self.view bringSubviewToFront:self.inputView];
-
+        
         [_currentController.view removeFromSuperview];
         [_currentController removeFromParentViewController];
         [viewControllerToPresent didMoveToParentViewController:self];
@@ -216,7 +246,7 @@
 
 - (IBAction)numberButtonPressed:(UIButton*)sender {
     NSString *input = @(sender.tag).stringValue;
-
+    
     UIViewController *vc = _currentController;
     if ([_currentController isKindOfClass:[UINavigationController class]])
     {
@@ -231,7 +261,7 @@
         {
             insertRange = NSMakeRange(text.length, 0);
         }
-                
+        
         [pinField.textfield.delegate textField:pinField.textfield shouldChangeCharactersInRange:insertRange replacementString:input];
     }
 }

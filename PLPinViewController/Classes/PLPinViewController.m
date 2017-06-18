@@ -33,31 +33,7 @@
 
 + (void)showControllerWithAction:(PLPinViewControllerAction)action enableCancel:(BOOL)enableCancel delegate:(id<PLPinViewControllerDelegate>)delegate animated:(BOOL)animated
 {
-    PLPinViewController *vc = (PLPinViewController*)[PLPinWindow defaultInstance].rootViewController;
-    vc.pinDelegate = delegate;
-    vc.enableCancel = enableCancel;
-    vc.pinLength = 4;
-    
-    switch (action) {
-        case PLPinViewControllerActionCreate:
-            vc.initialIdentifier = @"showCreatePin";
-            break;
-        case PLPinViewControllerActionChange:
-            vc.initialIdentifier = @"showChangePin";
-            break;
-        case PLPinViewControllerActionEnter:
-            vc.initialIdentifier = @"showEnterPin";
-            break;
-            
-        default:
-            break;
-    }
-    
-    if (vc.initialIdentifier  && [vc isViewLoaded] && vc.view.window)
-    {
-        [vc performSegueWithIdentifier:vc.initialIdentifier sender:nil];
-    }
-    [[PLPinWindow defaultInstance] showAnimated:animated];
+    [self showControllerWithAction:action enableCancel:enableCancel pinLength:4 delegate:delegate animated:animated];
 }
 
 + (void)showControllerWithAction:(PLPinViewControllerAction)action enableCancel:(BOOL)enableCancel  pinLength:(NSInteger)pinLength delegate:(id<PLPinViewControllerDelegate>)delegate animated:(BOOL)animated

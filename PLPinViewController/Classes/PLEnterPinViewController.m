@@ -16,15 +16,15 @@
 @import PLForm;
 
 @interface PLEnterPinViewController () <PLFormElementDelegate>
-{
-    PLFormPinFieldElement *pinElement;
-}
+
 @property (weak, nonatomic) IBOutlet PLFormPinField *pinField;
-@property (weak, nonatomic) IBOutlet UIImageView *illustration;
 @property (weak, nonatomic) IBOutlet UIView *errorView;
 @property (weak, nonatomic) IBOutlet UIButton *cancelButton;
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 @property (weak, nonatomic) IBOutlet UILabel *messageLabel;
+@property (weak, nonatomic) IBOutlet UILabel *forgottenPinLabel;
+@property (weak, nonatomic) IBOutlet UIButton *logoutButton;
+@property (weak, nonatomic) IBOutlet UILabel *errorLabel;
 
 @end
 
@@ -34,47 +34,12 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    // lets hook up the element
     PLPinViewController *vc = (PLPinViewController*)[PLPinWindow defaultInstance].rootViewController;
     self.cancelButton.hidden = !vc.enableCancel;
-    
-    pinElement = [PLFormPinFieldElement pinFieldElementWithID:0 pinLength:vc.pinLength delegate:self];
-    pinElement.dotSize = [PLPinWindow defaultInstance].pinAppearance.pinSize;
-    [self.pinField updateWithElement:pinElement];
-    
-    CGSize result = [[UIScreen mainScreen] bounds].size;
-    self.illustration.hidden = (result.height == 480);
-    self.errorView.alpha = 0.0f;
-    
-    
-    
-    self.pinField.textfield.inputView = [UIView new];
+
     [self setupAppearance];
 }
 
--(void)dealloc
-{
-    NSLog(@"dealloc pin controller");
-}
-
--(void)viewWillAppear:(BOOL)animated
-{
-    [super viewWillAppear:animated];
-    [self.pinField becomeFirstResponder];
-}
-
--(void)viewWillDisappear:(BOOL)animated
-{
-    [super viewWillDisappear:animated];
-    [self.pinField resignFirstResponder];
-}
-
--(void)viewDidDisappear:(BOOL)animated
-{
-    [super viewDidDisappear:animated];
-    pinElement.value = nil;
-    [self.pinField updateWithElement:pinElement];
-}
 
 -(void)setupAppearance
 {
@@ -84,36 +49,45 @@
     self.titleLabel.textColor = [PLPinWindow defaultInstance].pinAppearance.titleColor;
     self.messageLabel.font = [PLPinWindow defaultInstance].pinAppearance.messageFont;
     self.messageLabel.textColor = [PLPinWindow defaultInstance].pinAppearance.messageColor;
+    
+    self.titleLabel.text = NSLocalizedString(@"WELCOME BACK", @"WELCOME BACK");
+    self.messageLabel.text = NSLocalizedString(@"Enter your pin code to log in", @"Enter your pin code to log in");
+    self.forgottenPinLabel.text = NSLocalizedString(@"Forgotten Pin?", "Forgotten Pin?");
+    self.errorLabel.text = NSLocalizedString(@"You have entered an incorrect pin.", "You have entered an incorrect pin.");
+    [self.cancelButton setTitle: NSLocalizedString(@"Cancel", @"Cancel") forState: UIControlStateNormal];
+    [self.logoutButton setTitle: NSLocalizedString(@"Log Out", @"Log Out") forState: UIControlStateNormal];
 }
 
-- (void)formElementDidChangeValue:(PLFormElement *)formElement;
+
+- (void)pinWasEntered:(NSString *)pin;
 {
     PLPinViewController *vc = (PLPinViewController*)[PLPinWindow defaultInstance].rootViewController;
     if ([vc.pinDelegate respondsToSelector:@selector(pinViewController:shouldAcceptPin:)])
     {
-        if ([vc.pinDelegate pinViewController:vc shouldAcceptPin:pinElement.value])
+        if ([vc.pinDelegate pinViewController:vc shouldAcceptPin:pin])
         {
-            [self correctPin];
+            [self correctPin: pin];
         }
         else
         {
-            [self incorrectPin];
+            [self incorrectPin: pin];
         }
     }
 }
 
--(void)correctPin
+
+-(void)correctPin:(NSString *)pin
 {
     PLPinViewController *vc = (PLPinViewController*)[PLPinWindow defaultInstance].rootViewController;
     if ([vc.pinDelegate respondsToSelector:@selector(pinViewController:didEnterPin:)])
     {
-        [vc.pinDelegate pinViewController:vc didEnterPin:pinElement.value];
+        [vc.pinDelegate pinViewController:vc didEnterPin:pin];
     }
 }
 
--(void)incorrectPin
+
+-(void)incorrectPin:(NSString *)pin
 {
-    // we need to display incorrect pin
     self.errorView.alpha = 0.0f;
     [[UIApplication sharedApplication]beginIgnoringInteractionEvents];
     [UIView animateWithDuration:0.3f animations:^{
@@ -121,9 +95,10 @@
     } completion:^(BOOL finished) {
         [[UIApplication sharedApplication]endIgnoringInteractionEvents];
         
-        pinElement.value = nil;
-        [self.pinField updateWithElement:pinElement];
-        [self.pinField becomeFirstResponder];
+        //reset dots
+        [self.navigationController.delegate navigationController: self.navigationController
+                                           didShowViewController:self
+                                                        animated:NO];
         
         [UIView animateWithDuration:0.3f
                               delay:1.0f
@@ -136,8 +111,8 @@
     }];
     
     return;
-    
 }
+
 
 - (IBAction)logoutPressed:(id)sender {
     
@@ -150,6 +125,7 @@
     }
 }
 
+
 - (IBAction)cancelPressed:(id)sender {
     
     [self.view endEditing:YES];
@@ -160,5 +136,6 @@
         [vc.pinDelegate pinViewControllerDidCancel:vc];
     }
 }
+
 
 @end

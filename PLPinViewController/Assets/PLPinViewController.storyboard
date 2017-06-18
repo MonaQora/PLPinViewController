@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16C68" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -62,20 +63,15 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NAg-vO-aPr">
                                         <rect key="frame" x="0.0" y="79" width="375" height="51"/>
                                         <subviews>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Em4-62-nHK" customClass="PLFormPinField">
-                                                <rect key="frame" x="110" y="10.5" width="155" height="30"/>
-                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="30" id="auR-0A-dun"/>
-                                                    <constraint firstAttribute="width" constant="155" id="dEx-NU-Ji8"/>
-                                                </constraints>
-                                            </view>
+                                            <stackView opaque="NO" tag="1111" contentMode="scaleToFill" semanticContentAttribute="forceLeftToRight" placeholderIntrinsicWidth="155" placeholderIntrinsicHeight="30" distribution="equalCentering" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Ofj-sB-S7q">
+                                                <rect key="frame" x="110" y="10" width="155" height="30"/>
+                                            </stackView>
                                         </subviews>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="1aA-eo-i1Q"/>
-                                            <constraint firstItem="Em4-62-nHK" firstAttribute="centerY" secondItem="NAg-vO-aPr" secondAttribute="centerY" id="82f-Jl-u7l"/>
-                                            <constraint firstItem="Em4-62-nHK" firstAttribute="centerX" secondItem="NAg-vO-aPr" secondAttribute="centerX" id="TfM-Yd-ceq"/>
+                                            <constraint firstItem="Ofj-sB-S7q" firstAttribute="centerX" secondItem="NAg-vO-aPr" secondAttribute="centerX" id="ZRH-hh-d7X"/>
+                                            <constraint firstItem="Ofj-sB-S7q" firstAttribute="centerY" secondItem="NAg-vO-aPr" secondAttribute="centerY" id="x8J-F1-fCk"/>
                                         </constraints>
                                         <variation key="default">
                                             <mask key="constraints">
@@ -111,10 +107,10 @@
                                 </subviews>
                             </stackView>
                             <view alpha="0.10000000149011612" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="y1M-Uf-Uik">
-                                <rect key="frame" x="0.0" y="170" width="375" height="30"/>
+                                <rect key="frame" x="-0.5" y="170" width="375" height="30"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="INVALID PIN, TRY AGAIN" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NOh-kk-tW2">
-                                        <rect key="frame" x="130.5" y="9" width="114" height="12"/>
+                                        <rect key="frame" x="131" y="9" width="114" height="12"/>
                                         <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="10"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
@@ -165,15 +161,17 @@
                     <navigationItem key="navigationItem" id="i2r-UG-7b5"/>
                     <connections>
                         <outlet property="cancelButton" destination="2nd-JA-8fw" id="YYu-Kh-ash"/>
+                        <outlet property="errorLabel" destination="NOh-kk-tW2" id="HZm-Vz-pu3"/>
                         <outlet property="errorView" destination="y1M-Uf-Uik" id="GTl-yc-Uxl"/>
+                        <outlet property="forgottenPinLabel" destination="zTc-bc-qzp" id="wrW-Yh-PwM"/>
+                        <outlet property="logoutButton" destination="4Rn-O0-eZW" id="NXg-p3-gYC"/>
                         <outlet property="messageLabel" destination="c9d-um-dfq" id="OrA-ge-pTx"/>
-                        <outlet property="pinField" destination="Em4-62-nHK" id="1lL-1H-URo"/>
                         <outlet property="titleLabel" destination="7WN-Lg-XrT" id="1tf-vb-RV5"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WQa-9V-7L7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1065" y="-604"/>
+            <point key="canvasLocation" x="2062" y="-649"/>
         </scene>
         <!--Pin View Controller-->
         <scene sceneID="oGv-aE-nfs">
@@ -187,10 +185,10 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JKM-gJ-JAg" customClass="PLInputView">
+                            <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" semanticContentAttribute="forceLeftToRight" translatesAutoresizingMaskIntoConstraints="NO" id="JKM-gJ-JAg" customClass="PLInputView">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="10q-D6-8w9">
+                                    <view contentMode="scaleToFill" semanticContentAttribute="forceLeftToRight" translatesAutoresizingMaskIntoConstraints="NO" id="10q-D6-8w9">
                                         <rect key="frame" x="67.5" y="233.5" width="240" height="240"/>
                                         <subviews>
                                             <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xf5-EU-joB" customClass="PLPinButton">
@@ -347,7 +345,7 @@
                                             <constraint firstItem="b1K-Ff-axV" firstAttribute="height" secondItem="xf5-EU-joB" secondAttribute="height" id="ykW-gf-8rg"/>
                                         </constraints>
                                     </view>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ebQ-KZ-Vxj" customClass="PLPinButton">
+                                    <button opaque="NO" contentMode="scaleToFill" semanticContentAttribute="forceLeftToRight" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ebQ-KZ-Vxj" customClass="PLPinButton">
                                         <rect key="frame" x="152.5" y="488.5" width="70" height="70"/>
                                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="27"/>
@@ -359,7 +357,7 @@
                                             <action selector="numberButtonPressed:" destination="fBe-FM-yAI" eventType="touchUpInside" id="0E3-wx-XSa"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="i74-eQ-iX8">
+                                    <button opaque="NO" contentMode="scaleToFill" semanticContentAttribute="forceLeftToRight" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="i74-eQ-iX8">
                                         <rect key="frame" x="249.5" y="503.5" width="39" height="28"/>
                                         <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <state key="normal" image="pl_img_delete"/>
@@ -404,14 +402,14 @@
                         <outletCollection property="numberButtons" destination="Zz3-Ri-q3x" id="gqm-eX-Txg"/>
                         <outletCollection property="numberButtons" destination="SQP-Pj-Wyn" id="bXj-Qc-vZx"/>
                         <outletCollection property="numberButtons" destination="ebQ-KZ-Vxj" id="vYu-aJ-9tc"/>
-                        <segue destination="FTN-XV-rHC" kind="custom" identifier="showEnterPin" customClass="PLPinControllerSeque" id="KH7-5f-NHo"/>
                         <segue destination="9kk-XK-QD3" kind="custom" identifier="showCreatePin" customClass="PLPinControllerSeque" id="FT2-CD-w13"/>
                         <segue destination="Fft-NU-UZD" kind="custom" identifier="showChangePin" customClass="PLPinControllerSeque" id="NuD-iW-H4T"/>
+                        <segue destination="9I7-Qe-old" kind="custom" identifier="showEnterPin" customClass="PLPinControllerSeque" id="OSg-Bi-KVc"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cwF-IS-UEd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-266" y="-94"/>
+            <point key="canvasLocation" x="-318" y="-138"/>
         </scene>
         <!--Create Pin View Controller-->
         <scene sceneID="Wlq-E2-Aj2">
@@ -460,20 +458,15 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jiu-0G-6HG">
                                         <rect key="frame" x="0.0" y="104" width="375" height="40"/>
                                         <subviews>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dfe-aw-LNx" customClass="PLFormPinField">
-                                                <rect key="frame" x="110" y="5" width="155" height="30"/>
-                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="30" id="XwT-Pt-asK"/>
-                                                    <constraint firstAttribute="width" constant="155" id="ty0-mA-unR"/>
-                                                </constraints>
-                                            </view>
+                                            <stackView opaque="NO" tag="1111" contentMode="scaleToFill" semanticContentAttribute="forceLeftToRight" placeholderIntrinsicWidth="155" placeholderIntrinsicHeight="30" distribution="equalCentering" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="OBr-fB-EUs">
+                                                <rect key="frame" x="109.5" y="5" width="155" height="30"/>
+                                            </stackView>
                                         </subviews>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <constraints>
-                                            <constraint firstItem="dfe-aw-LNx" firstAttribute="centerX" secondItem="jiu-0G-6HG" secondAttribute="centerX" id="1PY-7Q-5bm"/>
-                                            <constraint firstItem="dfe-aw-LNx" firstAttribute="centerY" secondItem="jiu-0G-6HG" secondAttribute="centerY" id="LG9-o0-bt4"/>
+                                            <constraint firstItem="OBr-fB-EUs" firstAttribute="centerY" secondItem="jiu-0G-6HG" secondAttribute="centerY" id="PBT-kX-ftZ"/>
                                             <constraint firstAttribute="height" constant="40" id="RMP-DZ-4mV"/>
+                                            <constraint firstItem="OBr-fB-EUs" firstAttribute="centerX" secondItem="jiu-0G-6HG" secondAttribute="centerX" id="nQa-3k-t5B"/>
                                         </constraints>
                                     </view>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PINS DON'T MATCH, TRY AGAIN" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AJM-yJ-uDl">
@@ -508,7 +501,6 @@
                     <connections>
                         <outlet property="errorLabel" destination="AJM-yJ-uDl" id="btE-ax-u9g"/>
                         <outlet property="messageLabel" destination="RHH-uY-tgg" id="gXc-4x-i4w"/>
-                        <outlet property="pinField" destination="dfe-aw-LNx" id="xm6-OC-Yo7"/>
                         <outlet property="titleLabel" destination="Znm-o6-gfh" id="b1g-Hl-b3T"/>
                         <segue destination="83k-cr-wIe" kind="show" identifier="advance" id="GIw-mr-CZc">
                             <nil key="action"/>
@@ -566,20 +558,15 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jZR-3j-Q1n">
                                         <rect key="frame" x="0.0" y="104" width="375" height="40"/>
                                         <subviews>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="h8G-xv-Kxh" customClass="PLFormPinField">
+                                            <stackView opaque="NO" tag="1111" contentMode="scaleToFill" semanticContentAttribute="forceLeftToRight" placeholderIntrinsicWidth="155" placeholderIntrinsicHeight="30" distribution="equalCentering" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="ZIw-HI-qUn">
                                                 <rect key="frame" x="110" y="5" width="155" height="30"/>
-                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" constant="155" id="4x1-7R-7v4"/>
-                                                    <constraint firstAttribute="height" constant="30" id="tB7-1R-rpQ"/>
-                                                </constraints>
-                                            </view>
+                                            </stackView>
                                         </subviews>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <constraints>
-                                            <constraint firstItem="h8G-xv-Kxh" firstAttribute="centerX" secondItem="jZR-3j-Q1n" secondAttribute="centerX" id="CcY-7W-Vig"/>
+                                            <constraint firstItem="ZIw-HI-qUn" firstAttribute="centerY" secondItem="jZR-3j-Q1n" secondAttribute="centerY" id="CxY-QK-OcM"/>
                                             <constraint firstAttribute="height" constant="40" id="U1l-iW-BIL"/>
-                                            <constraint firstItem="h8G-xv-Kxh" firstAttribute="centerY" secondItem="jZR-3j-Q1n" secondAttribute="centerY" id="dEL-8m-Eqj"/>
+                                            <constraint firstItem="ZIw-HI-qUn" firstAttribute="centerX" secondItem="jZR-3j-Q1n" secondAttribute="centerX" id="oDy-gC-64g"/>
                                         </constraints>
                                     </view>
                                 </subviews>
@@ -604,7 +591,6 @@
                     <navigationItem key="navigationItem" id="O7e-OA-3SA"/>
                     <connections>
                         <outlet property="messageLabel" destination="ntC-2n-Qd0" id="8fq-W0-hbg"/>
-                        <outlet property="pinField" destination="h8G-xv-Kxh" id="ed2-d8-PWY"/>
                         <outlet property="titleLabel" destination="Zi3-kU-FOM" id="UO9-5F-s0N"/>
                         <segue destination="APp-DC-Ckw" kind="unwind" identifier="unwindToCreatPin" unwindAction="unwindToCreatPin:" id="5Mm-nC-dzc"/>
                     </connections>
@@ -683,19 +669,14 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CtW-E2-Bub">
                                         <rect key="frame" x="0.0" y="110" width="375" height="40"/>
                                         <subviews>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nYH-N5-F1j" customClass="PLFormPinField">
+                                            <stackView opaque="NO" tag="1111" contentMode="scaleToFill" semanticContentAttribute="forceLeftToRight" placeholderIntrinsicWidth="155" placeholderIntrinsicHeight="30" distribution="equalCentering" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="q0o-8b-brT">
                                                 <rect key="frame" x="110" y="5" width="155" height="30"/>
-                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="30" id="VxF-JB-zIj"/>
-                                                    <constraint firstAttribute="width" constant="155" id="lxe-K0-J4M"/>
-                                                </constraints>
-                                            </view>
+                                            </stackView>
                                         </subviews>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <constraints>
-                                            <constraint firstItem="nYH-N5-F1j" firstAttribute="centerY" secondItem="CtW-E2-Bub" secondAttribute="centerY" id="4FS-Ul-ykL"/>
-                                            <constraint firstItem="nYH-N5-F1j" firstAttribute="centerX" secondItem="CtW-E2-Bub" secondAttribute="centerX" id="Rwg-de-GEj"/>
+                                            <constraint firstItem="q0o-8b-brT" firstAttribute="centerY" secondItem="CtW-E2-Bub" secondAttribute="centerY" id="MSI-ya-3hO"/>
+                                            <constraint firstItem="q0o-8b-brT" firstAttribute="centerX" secondItem="CtW-E2-Bub" secondAttribute="centerX" id="RmQ-qc-gfV"/>
                                             <constraint firstAttribute="height" constant="40" id="woY-Y2-b3t"/>
                                         </constraints>
                                     </view>
@@ -759,7 +740,6 @@
                         <outlet property="cancelButton" destination="eMR-Ch-Wxo" id="Ma1-bZ-B2l"/>
                         <outlet property="errorView" destination="jDc-Mq-HYD" id="0M7-1y-BEm"/>
                         <outlet property="messageLabel" destination="jjJ-9b-aCi" id="dXi-Jr-s2V"/>
-                        <outlet property="pinField" destination="nYH-N5-F1j" id="exS-AJ-zvO"/>
                         <outlet property="titleLabel" destination="GHk-be-chd" id="evu-Jf-2dD"/>
                         <segue destination="fcX-sR-Qae" kind="unwind" identifier="unwindToCreatPin" unwindAction="unwindToCreatPin:" id="FLf-II-qKD"/>
                         <segue destination="uxa-Vc-C4o" kind="show" identifier="advance" id="mlO-zN-Ovb"/>
@@ -787,6 +767,24 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5HU-uK-t3D" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1064.8" y="1204.9475262368817"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="tH4-Rt-RP2">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="9I7-Qe-old" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="knn-Ao-EYe">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="FTN-XV-rHC" kind="relationship" relationship="rootViewController" id="MjF-Ko-Svy"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="uXc-Ml-A3V" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1065" y="-649"/>
         </scene>
     </scenes>
     <resources>

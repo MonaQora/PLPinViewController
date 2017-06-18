@@ -45,6 +45,9 @@
     self.titleColor = [UIColor colorWithRed:30.0f / 255.0f green:175.0f / 255.0f blue:216.0f / 255.0f alpha:1];
     self.messageFont = [UIFont systemFontOfSize:17];
     self.messageColor = [UIColor colorWithRed:131.0f / 255.0f green:136.0f / 255.0f blue:152.0f / 255.0f alpha:1];
+    self.errorFont = [UIFont boldSystemFontOfSize:10];
+    self.errorColor = [UIColor blackColor];
+    
     
     self.statusBarStyle = UIStatusBarStyleDefault;
 }

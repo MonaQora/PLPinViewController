@@ -10,4 +10,6 @@
 
 @interface PLEnterPinViewController : UIViewController
 
+- (void)pinWasEntered:(NSString *)pin;
+
 @end

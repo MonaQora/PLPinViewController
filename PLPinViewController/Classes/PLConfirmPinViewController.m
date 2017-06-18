@@ -12,14 +12,9 @@
 #import "PLPinWindow.h"
 #import "PLPinAppearance.h"
 
-@import PLForm;
 
 @interface PLConfirmPinViewController () <PLFormElementDelegate>
-{
-    PLFormPinFieldElement *pinElement;
-}
-@property (weak, nonatomic) IBOutlet PLFormPinField *pinField;
-@property (weak, nonatomic) IBOutlet UIImageView *illustration;
+
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 @property (weak, nonatomic) IBOutlet UILabel *messageLabel;
 
@@ -28,50 +23,16 @@
 
 @implementation PLConfirmPinViewController
 
-- (void)viewDidLoad {
+- (void)viewDidLoad
+{
     [super viewDidLoad];
     
-    // lets hook up the element
-    PLPinViewController *vc = (PLPinViewController*)[PLPinWindow defaultInstance].rootViewController;
-    
-    pinElement = [PLFormPinFieldElement pinFieldElementWithID:0 pinLength:vc.pinLength delegate:self];
-    pinElement.dotSize = [PLPinWindow defaultInstance].pinAppearance.pinSize;
-    [self.pinField updateWithElement:pinElement];
-    
-    [self.pinField becomeFirstResponder];
-    
-    CGSize result = [[UIScreen mainScreen] bounds].size;
-    self.illustration.hidden = (result.height == 480);
-    
-    self.pinField.textfield.inputView = [UIView new];
+    self.titleLabel.text = NSLocalizedString(@"REPEAT PIN", @"REPEAT PIN");
+    self.messageLabel.text = NSLocalizedString(@"Repeat your pin code to confirm it's correct", @"Repeat your pin code to confirm it's correct");
     
     [self setupAppearance];
-    
-    //    self.navigationItem.leftBarButtonItem = [UIBarButtonItem yvp_backBarButtonItemWithTarget:self action:@selector(popBack)];
 }
 
--(void)popBack
-{
-    [self performSegueWithIdentifier:@"unwindToCreatPin" sender:nil];
-}
-
--(void)viewWillAppear:(BOOL)animated
-{
-    [super viewWillAppear:animated];
-    //    [self.pinField becomeFirstResponder];
-}
-
--(void)viewDidAppear:(BOOL)animated
-{
-    [super viewDidAppear:animated];
-    [self.pinField becomeFirstResponder];
-}
-
--(void)viewWillDisappear:(BOOL)animated
-{
-    [super viewWillDisappear:animated];
-    [self.pinField resignFirstResponder];
-}
 
 -(void)setupAppearance
 {
@@ -82,14 +43,15 @@
     self.messageLabel.textColor = [PLPinWindow defaultInstance].pinAppearance.messageColor;
 }
 
-- (void)formElementDidChangeValue:(PLFormElement *)formElement;
+
+- (void)pinWasEntered:(NSString *)pin
 {
-    if ([pinElement.value isEqualToString:self.pin] )
+    if ([pin isEqualToString:self.pin] )
     {
         PLPinViewController *vc = (PLPinViewController*)[PLPinWindow defaultInstance].rootViewController;
         if ([vc.pinDelegate respondsToSelector:@selector(pinViewController:didSetPin:)])
         {
-            [vc.pinDelegate pinViewController:vc didSetPin:pinElement.value];
+            [vc.pinDelegate pinViewController:vc didSetPin:pin];
         }
     }
     else

@@ -15,7 +15,9 @@
 #import "PLStyleButton.h"
 #import "PLPinAppearance.h"
 
+
 #define IS_SHORTSCREEN ( fabs( ( double )[ [ UIScreen mainScreen ] bounds ].size.height - ( double )480 ) < DBL_EPSILON )
+#define DOT_CONTAINER_TAG 1111
 
 @interface PLPinViewController () <UINavigationControllerDelegate>
 
@@ -26,6 +28,8 @@
 @property (nonatomic,strong) NSString *lastIdentifier;
 @property (nonatomic,strong) NSString *initialIdentifier;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *keypadHeightConstraint;
+
+@property (nonatomic, strong) NSMutableString *currentPin;
 
 @end
 
@@ -72,7 +76,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    
+    self.currentPin = [[NSMutableString alloc] init];
     [self setupAppearance];
     
     if (self.initialIdentifier)
@@ -84,10 +89,12 @@
     [self performSegueWithIdentifier:@"showEnterPin" sender:nil];
 }
 
+
 - (UIStatusBarStyle)preferredStatusBarStyle
 {
     return [[PLPinWindow defaultInstance].pinAppearance statusBarStyle];
 }
+
 
 -(void)viewDidLayoutSubviews
 {
@@ -95,8 +102,8 @@
     {
         button.cornerRadius = button.bounds.size.width / 2.0f;
     }
-    
 }
+
 
 -(void)setupAppearance
 {
@@ -116,30 +123,49 @@
     
     [self.deleteButton setTintColor:appearance.deleteButtonColor];
     
-    if (IS_SHORTSCREEN)
-    {
-        self.keypadHeightConstraint.constant = 160;
-    }
-    else
-    {
-        self.keypadHeightConstraint.constant = 240;
-    }
-    
-    id dotAppearance = [PLFormPinDot appearanceWhenContainedInInstancesOfClasses:@[[PLPinWindow class]]];
+    id dotAppearance = [PLFormPinDot appearanceWhenContainedInInstancesOfClasses:@[[UIStackView class]]];
     [dotAppearance setUnselectedBorderColor:[UIColor clearColor]];
     [dotAppearance setHighlightedBorderColor:[UIColor clearColor]];
     [dotAppearance setSelectedBorderColor:appearance.pinHighlightedColor];
     
     [dotAppearance setUnselectedColor:appearance.pinFillColor];
-    [dotAppearance setHighlightedColor:appearance.pinFillColor];
+    [dotAppearance setHighlightedColor:appearance.pinHighlightedColor];
     [dotAppearance setSelectedColor:appearance.pinHighlightedColor];
-    
 }
+
+
+- (void)setupDots
+{
+    UIStackView *containerView = [self firstPinContainerInView:self.view];
+    
+    if (containerView.subviews.count == 0)
+    {
+        NSInteger dotSize = [PLPinWindow defaultInstance].pinAppearance.pinSize;
+        
+        for (int i=0; i < self.pinLength; i++)
+        {
+            PLFormPinDot *dot = [PLFormPinDot new];
+            dot.tag = i;
+            
+            [dot.heightAnchor constraintEqualToConstant:dotSize].active = YES;
+            [dot.widthAnchor constraintEqualToConstant:dotSize].active = YES;
+            
+            [containerView addArrangedSubview: dot];
+        }
+    }
+    
+    for (PLFormPinDot *dot in containerView.subviews)
+    {
+        dot.state = PLPinDotStateUnselected;
+    }
+}
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
@@ -153,14 +179,14 @@
     }
 }
 
-- (void)navigationController:(UINavigationController *)navigationController willShowViewController:(UIViewController *)viewController animated:(BOOL)animated;
-{
-}
 
 - (void)navigationController:(UINavigationController *)navigationController didShowViewController:(UIViewController *)viewController animated:(BOOL)animated;
 {
-    
+    [self.currentPin setString:@""];
+    [self setupDots];
 }
+
+
 - (id <UIViewControllerAnimatedTransitioning>)navigationController:(UINavigationController *)navigationController
                                    animationControllerForOperation:(UINavigationControllerOperation)operation
                                                 fromViewController:(UIViewController *)fromVC
@@ -221,62 +247,68 @@
     }
 }
 
-- (IBAction)numberButtonPressed:(UIButton*)sender {
-    NSString *input = @(sender.tag).stringValue;
+
+- (IBAction)numberButtonPressed:(UIButton*)sender
+{
+    [self.currentPin appendString:@(sender.tag).stringValue];
+    NSInteger currentPinCharacter = self.currentPin.length - 1;
     
-    UIViewController *vc = _currentController;
-    if ([_currentController isKindOfClass:[UINavigationController class]])
+    [self setState:PLPinDotStateHighlighted forDotWithTag:currentPinCharacter];
+    
+    if (self.currentPin.length == self.pinLength)
     {
-        vc = ((UINavigationController*)_currentController).topViewController;
-    }
-    PLFormPinField *pinField = [self firstPinFieldInView:vc.view];
-    if (pinField)
-    {
-        NSString *text = pinField.textfield.text;
-        NSRange insertRange = NSMakeRange(0, 0);
-        if (text.length > 0)
-        {
-            insertRange = NSMakeRange(text.length, 0);
-        }
+        UINavigationController *nc = (UINavigationController *)self.currentController;
+        id currentlyDisplayingController = nc.topViewController;
         
-        [pinField.textfield.delegate textField:pinField.textfield shouldChangeCharactersInRange:insertRange replacementString:input];
-    }
-}
-
-- (IBAction)deleteButtonPressed:(id)sender {
-    UIViewController *vc = _currentController;
-    if ([_currentController isKindOfClass:[UINavigationController class]])
-    {
-        vc = ((UINavigationController*)_currentController).topViewController;
-    }
-    PLFormPinField *pinField = [self firstPinFieldInView:vc.view];
-    if (pinField)
-    {
-        NSString *text = pinField.textfield.text;
-        NSRange deleteRange = NSMakeRange(0, 0);
-        if (text.length > 0)
+        if ([currentlyDisplayingController respondsToSelector:@selector(pinWasEntered:)])
         {
-            deleteRange = NSMakeRange(text.length - 1, 1);
+            [currentlyDisplayingController pinWasEntered:[self.currentPin copy]];
         }
-        [pinField.textfield.delegate textField:pinField.textfield shouldChangeCharactersInRange:deleteRange replacementString:@""];
     }
 }
 
 
-//
--(PLFormPinField*)firstPinFieldInView:(UIView*)view
+- (IBAction)deleteButtonPressed:(id)sender
+{
+    if (self.currentPin.length > 0)
+    {
+        [self.currentPin deleteCharactersInRange:NSMakeRange([self.currentPin length] - 1, 1)];
+        NSInteger currentPinCharacter = self.currentPin.length;
+        
+        [self setState:PLPinDotStateUnselected forDotWithTag:currentPinCharacter];
+    }
+}
+
+
+- (void)setState:(PLPinDotState)state forDotWithTag:(NSInteger)tag
+{
+    UIStackView *containerView = [self firstPinContainerInView:self.view];
+    PLFormPinDot *dot = (PLFormPinDot *)[containerView viewWithTag:tag];
+    dot.state = state;
+}
+
+
+-(UIStackView*)firstPinContainerInView:(UIView*)view
 {
     for (UIView *subView in view.subviews)
     {
-        if ([subView isKindOfClass:[PLFormPinField class]])
-            return (PLFormPinField*)subView;
+        if (subView.tag == DOT_CONTAINER_TAG)
+        {
+            return (UIStackView*)subView;
+        }
         
         if (subView.subviews.count)
         {
-            PLFormPinField *tf = [self firstPinFieldInView:subView];
-            if (tf) return tf;
+            UIStackView *sv = [self firstPinContainerInView:subView];
+            
+            if (sv)
+            {
+                return sv;
+            }
         }
     }
     return nil;
 }
+
+
 @end

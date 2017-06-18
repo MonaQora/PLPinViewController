@@ -11,5 +11,6 @@
 @interface PLConfirmPinViewController : UIViewController
 
 @property (nonatomic, strong) NSString *pin;
+- (void)pinWasEntered:(NSString *)pin;
 
 @end

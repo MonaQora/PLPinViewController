@@ -203,6 +203,7 @@
          }
                                 completion:^(BOOL finished)
          {
+             [self.view bringSubviewToFront:self.inputView];
              [viewControllerToPresent didMoveToParentViewController:self];
              [_currentController removeFromParentViewController];
              _currentController = viewControllerToPresent;

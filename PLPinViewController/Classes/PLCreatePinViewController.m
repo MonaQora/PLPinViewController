@@ -9,6 +9,7 @@
 #import "PLCreatePinViewController.h"
 #import "PLFormPinField.h"
 #import "PLPinAppearance.h"
+#import "PLPinViewController.h"
 #import "PLPinWindow.h"
 
 @import PLForm;
@@ -31,9 +32,12 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-
+    
     // lets hook up the element
-    pinElement = [PLFormPinFieldElement pinFieldElementWithID:0 pinLength:4 delegate:self];
+    PLPinViewController *vc = (PLPinViewController*)[PLPinWindow defaultInstance].rootViewController;
+    self.messageLabel.text = [NSString stringWithFormat:@"Enter a %ld digit pin to keep your data safe",(long)vc.pinLength];
+    pinElement = [PLFormPinFieldElement pinFieldElementWithID:0 pinLength:vc.pinLength delegate:self];
+    
     pinElement.dotSize = [PLPinWindow defaultInstance].pinAppearance.pinSize;
     [self.pinField updateWithElement:pinElement];
     
@@ -60,7 +64,7 @@
 -(void)viewWillDisappear:(BOOL)animated
 {
     [super viewWillDisappear:animated];
-//    [self.pinField resignFirstResponder];
+    //    [self.pinField resignFirstResponder];
 }
 
 -(void)setupAppearance

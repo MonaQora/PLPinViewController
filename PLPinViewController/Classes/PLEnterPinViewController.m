@@ -35,7 +35,10 @@
     [super viewDidLoad];
     
     // lets hook up the element
-    pinElement = [PLFormPinFieldElement pinFieldElementWithID:0 pinLength:4 delegate:self];
+    PLPinViewController *vc = (PLPinViewController*)[PLPinWindow defaultInstance].rootViewController;
+    self.cancelButton.hidden = !vc.enableCancel;
+    
+    pinElement = [PLFormPinFieldElement pinFieldElementWithID:0 pinLength:vc.pinLength delegate:self];
     pinElement.dotSize = [PLPinWindow defaultInstance].pinAppearance.pinSize;
     [self.pinField updateWithElement:pinElement];
     
@@ -43,8 +46,7 @@
     self.illustration.hidden = (result.height == 480);
     self.errorView.alpha = 0.0f;
     
-    PLPinViewController *vc = (PLPinViewController*)[PLPinWindow defaultInstance].rootViewController;
-    self.cancelButton.hidden = !vc.enableCancel;
+    
     
     self.pinField.textfield.inputView = [UIView new];
     [self setupAppearance];
@@ -127,14 +129,14 @@
                               delay:1.0f
                             options:0
                          animations:^{
-            self.errorView.alpha = 0.0f;
-        } completion:^(BOOL finished) {
-        }];
+                             self.errorView.alpha = 0.0f;
+                         } completion:^(BOOL finished) {
+                         }];
         
     }];
     
     return;
-
+    
 }
 
 - (IBAction)logoutPressed:(id)sender {

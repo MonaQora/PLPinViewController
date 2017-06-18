@@ -32,7 +32,9 @@
     [super viewDidLoad];
     
     // lets hook up the element
-    pinElement = [PLFormPinFieldElement pinFieldElementWithID:0 pinLength:4 delegate:self];
+    PLPinViewController *vc = (PLPinViewController*)[PLPinWindow defaultInstance].rootViewController;
+    
+    pinElement = [PLFormPinFieldElement pinFieldElementWithID:0 pinLength:vc.pinLength delegate:self];
     pinElement.dotSize = [PLPinWindow defaultInstance].pinAppearance.pinSize;
     [self.pinField updateWithElement:pinElement];
     
@@ -40,12 +42,12 @@
     
     CGSize result = [[UIScreen mainScreen] bounds].size;
     self.illustration.hidden = (result.height == 480);
-
+    
     self.pinField.textfield.inputView = [UIView new];
-
+    
     [self setupAppearance];
-
-//    self.navigationItem.leftBarButtonItem = [UIBarButtonItem yvp_backBarButtonItemWithTarget:self action:@selector(popBack)];
+    
+    //    self.navigationItem.leftBarButtonItem = [UIBarButtonItem yvp_backBarButtonItemWithTarget:self action:@selector(popBack)];
 }
 
 -(void)popBack
@@ -56,7 +58,7 @@
 -(void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-//    [self.pinField becomeFirstResponder];
+    //    [self.pinField becomeFirstResponder];
 }
 
 -(void)viewDidAppear:(BOOL)animated

@@ -56,6 +56,8 @@
     self.errorLabel.text = NSLocalizedString(@"You have entered an incorrect pin.", "You have entered an incorrect pin.");
     [self.cancelButton setTitle: NSLocalizedString(@"Cancel", @"Cancel") forState: UIControlStateNormal];
     [self.logoutButton setTitle: NSLocalizedString(@"Log Out", @"Log Out") forState: UIControlStateNormal];
+    
+    self.errorView.alpha = 0.0f;
 }
 
 

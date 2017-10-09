@@ -26,6 +26,8 @@
 @property (weak, nonatomic) IBOutlet UIButton *logoutButton;
 @property (weak, nonatomic) IBOutlet UILabel *errorLabel;
 
+@property CGFloat errorMessageVisibleDuration;
+
 @end
 
 
@@ -54,8 +56,12 @@
     self.messageLabel.text = NSLocalizedString(@"Enter your pin code to log in", @"Enter your pin code to log in");
     self.forgottenPinLabel.text = NSLocalizedString(@"Forgotten Pin?", "Forgotten Pin?");
     self.errorLabel.text = NSLocalizedString(@"You have entered an incorrect pin.", "You have entered an incorrect pin.");
+    self.errorLabel.font = [PLPinWindow defaultInstance].pinAppearance.errorFont;
+    self.errorLabel.textColor = [PLPinWindow defaultInstance].pinAppearance.errorColor;
     [self.cancelButton setTitle: NSLocalizedString(@"Cancel", @"Cancel") forState: UIControlStateNormal];
     [self.logoutButton setTitle: NSLocalizedString(@"Log Out", @"Log Out") forState: UIControlStateNormal];
+    
+    self.errorMessageVisibleDuration = [PLPinWindow defaultInstance].pinAppearance.enterPinErrorMessageVisibleDuration;
     
     self.errorView.alpha = 0.0f;
 }
@@ -103,7 +109,7 @@
                                                         animated:NO];
         
         [UIView animateWithDuration:0.3f
-                              delay:1.0f
+                              delay:self.errorMessageVisibleDuration
                             options:0
                          animations:^{
                              self.errorView.alpha = 0.0f;

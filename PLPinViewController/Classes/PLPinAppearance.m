@@ -48,6 +48,7 @@
     self.errorFont = [UIFont boldSystemFontOfSize:10];
     self.errorColor = [UIColor blackColor];
     
+    self.enterPinErrorMessageVisibleDuration = 1.0f;
     
     self.statusBarStyle = UIStatusBarStyleDefault;
 }

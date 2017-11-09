@@ -33,6 +33,8 @@
 @property (nonatomic, strong) UIFont *errorFont;
 @property (nonatomic, strong) UIColor *errorColor;
 
+@property CGFloat enterPinErrorMessageVisibleDuration;
+
 @property (nonatomic, assign) UIStatusBarStyle statusBarStyle;
 
 @end

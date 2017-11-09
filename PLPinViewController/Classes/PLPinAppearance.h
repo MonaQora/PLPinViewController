@@ -20,6 +20,9 @@
 
 @property (nonatomic, strong) UIColor *deleteButtonColor;
 
+@property (nonatomic, strong) UIFont *cancelButtonFont;
+@property (nonatomic, strong) UIColor *cancelButtonTextColor;
+
 @property (nonatomic, strong) UIColor *pinFillColor;
 @property (nonatomic, strong) UIColor *pinHighlightedColor;
 @property (nonatomic, assign) CGFloat pinSize;

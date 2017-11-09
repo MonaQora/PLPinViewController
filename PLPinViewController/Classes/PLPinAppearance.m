@@ -36,6 +36,9 @@
     
     self.deleteButtonColor = defaultColor;
     
+    self.cancelButtonFont = [UIFont systemFontOfSize:17.0f];
+    self.cancelButtonTextColor = [UIColor redColor];
+    
     self.pinFillColor = [UIColor blackColor];
     self.pinHighlightedColor = defaultColor;
     self.pinSize = 20;

@@ -58,7 +58,11 @@
     self.errorLabel.text = NSLocalizedString(@"You have entered an incorrect pin.", "You have entered an incorrect pin.");
     self.errorLabel.font = [PLPinWindow defaultInstance].pinAppearance.errorFont;
     self.errorLabel.textColor = [PLPinWindow defaultInstance].pinAppearance.errorColor;
+    
     [self.cancelButton setTitle: NSLocalizedString(@"Cancel", @"Cancel") forState: UIControlStateNormal];
+    self.cancelButton.titleLabel.font = [PLPinWindow defaultInstance].pinAppearance.cancelButtonFont;
+    [self.cancelButton setTitleColor:[PLPinWindow defaultInstance].pinAppearance.cancelButtonTextColor forState:UIControlStateNormal];
+    
     [self.logoutButton setTitle: NSLocalizedString(@"Log Out", @"Log Out") forState: UIControlStateNormal];
     
     self.errorMessageVisibleDuration = [PLPinWindow defaultInstance].pinAppearance.enterPinErrorMessageVisibleDuration;

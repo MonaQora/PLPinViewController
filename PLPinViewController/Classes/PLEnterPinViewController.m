@@ -64,6 +64,8 @@
     [self.cancelButton setTitleColor:[PLPinWindow defaultInstance].pinAppearance.cancelButtonTextColor forState:UIControlStateNormal];
     
     [self.logoutButton setTitle: NSLocalizedString(@"Log Out", @"Log Out") forState: UIControlStateNormal];
+    self.logoutButton.titleLabel.font = [PLPinWindow defaultInstance].pinAppearance.logoutButtonFont;
+    [self.logoutButton setTitleColor:[PLPinWindow defaultInstance].pinAppearance.logoutButtonTextColor forState:UIControlStateNormal];
     
     self.errorMessageVisibleDuration = [PLPinWindow defaultInstance].pinAppearance.enterPinErrorMessageVisibleDuration;
     

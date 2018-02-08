@@ -39,6 +39,9 @@
     self.cancelButtonFont = [UIFont systemFontOfSize:17.0f];
     self.cancelButtonTextColor = [UIColor redColor];
     
+    self.logoutButtonFont = [UIFont systemFontOfSize:17.0f];
+    self.logoutButtonTextColor = [UIColor redColor];
+    
     self.pinFillColor = [UIColor blackColor];
     self.pinHighlightedColor = defaultColor;
     self.pinSize = 20;

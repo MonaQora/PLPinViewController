@@ -11,7 +11,7 @@
 
 @import PureLayout;
 
-@interface PLPinField () <UITextFieldDelegate>
+@interface PLPinField ()
 {
     UITapGestureRecognizer *insideTapGestureRecognizer;
     UITapGestureRecognizer *outsideTapGestureRecognizer;
@@ -19,7 +19,6 @@
     NSArray *dotViews;
     NSArray *underlineViews;
 }
-@property (nonatomic, readwrite) UITextField *textfield;
 
 @end
 

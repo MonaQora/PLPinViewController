@@ -65,7 +65,7 @@
 
 - (BOOL)pinViewController:(PLPinViewController *)controller shouldAcceptPin:(NSString*)pin;
 {
-    return [pin isEqualToString:@"1111"];
+    return [pin isEqualToString:@"11111"];
 }
 
 - (void)pinViewController:(PLPinViewController *)controller didEnterPin:(NSString*)pin;

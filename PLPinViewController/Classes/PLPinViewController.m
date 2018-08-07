@@ -36,7 +36,7 @@
 
 + (void)showControllerWithAction:(PLPinViewControllerAction)action enableCancel:(BOOL)enableCancel delegate:(id<PLPinViewControllerDelegate>)delegate animated:(BOOL)animated
 {
-    [self showControllerWithAction:action enableCancel:enableCancel pinLength:4 delegate:delegate animated:animated];
+    [self showControllerWithAction:action enableCancel:enableCancel pinLength:5 delegate:delegate animated:animated];
 }
 
 + (void)showControllerWithAction:(PLPinViewControllerAction)action enableCancel:(BOOL)enableCancel  pinLength:(NSInteger)pinLength delegate:(id<PLPinViewControllerDelegate>)delegate animated:(BOOL)animated

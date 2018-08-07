@@ -35,5 +35,4 @@ s.resource_bundles = {
 }
 
 s.public_header_files = 'PLPinViewController/Classes/**/*.h'
-s.dependency 'PureLayout'
 end

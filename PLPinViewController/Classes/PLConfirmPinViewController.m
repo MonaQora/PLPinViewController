@@ -7,7 +7,6 @@
 //
 
 #import "PLConfirmPinViewController.h"
-#import "PLPinField.h"
 #import "PLPinViewController.h"
 #import "PLPinWindow.h"
 #import "PLPinAppearance.h"

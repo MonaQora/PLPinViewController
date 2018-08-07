@@ -11,9 +11,9 @@
 #import "PLEnterPinViewController.h"
 #import "PLPinWindow.h"
 #import "PLSlideTransition.h"
-#import "PLPinField.h"
 #import "PLPinAppearance.h"
 #import "PLPinButton.h"
+#import "PLPinDot.h"
 
 #define IS_SHORTSCREEN ( fabs( ( double )[ [ UIScreen mainScreen ] bounds ].size.height - ( double )480 ) < DBL_EPSILON )
 #define DOT_CONTAINER_TAG 1111

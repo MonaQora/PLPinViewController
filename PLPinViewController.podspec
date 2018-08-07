@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
 s.name             = 'PLPinViewController'
-s.version          = '0.1.11'
+s.version          = '0.1.12'
 s.summary          = 'A simple pinlock controller'
 
 # This description is used to generate tags and improve search results.
@@ -36,5 +36,4 @@ s.resource_bundles = {
 
 s.public_header_files = 'PLPinViewController/Classes/**/*.h'
 s.dependency 'PureLayout'
-s.dependency 'PLForm'
 end

@@ -13,8 +13,6 @@
 #import "PLPinAppearance.h"
 
 
-@import PLForm;
-
 @interface PLEnterPinViewController () <PLFormElementDelegate>
 
 @property (weak, nonatomic) IBOutlet PLFormPinField *pinField;

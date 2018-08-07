@@ -6,7 +6,7 @@
 //
 //
 
-#import <PLForm/PLForm.h>
+#import "PLStyleButton.h"
 
 @interface PLPinButton : PLStyleButton
 

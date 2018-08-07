@@ -9,7 +9,6 @@
 
 #import <UIKit/UIKit.h>
 #import "PLFormElement.h"
-#import "PLStyleView.h"
 #import "PLFormPinDot.h"
 
 @interface PLFormPinFieldElement : PLFormElement
@@ -25,7 +24,7 @@
 @end
 
 
-@interface PLFormPinField : PLStyleView
+@interface PLFormPinField : UIView
 
 @property (nonatomic, strong) PLFormPinFieldElement* element;
 @property (nonatomic, readonly) UITextField *textfield;
@@ -33,7 +32,9 @@
 @property (nonatomic,strong) UIColor *unselectedUnderlineColor UI_APPEARANCE_SELECTOR;
 @property (nonatomic,strong) UIColor *selectedUnderlineColor UI_APPEARANCE_SELECTOR;
 @property (nonatomic,strong) UIColor *highlightedUnderlineColor UI_APPEARANCE_SELECTOR;
-
+@property (nonatomic,strong) UIColor *borderColor UI_APPEARANCE_SELECTOR;
+@property (nonatomic) CGFloat borderWidth UI_APPEARANCE_SELECTOR;
+@property (nonatomic) CGFloat cornerRadius UI_APPEARANCE_SELECTOR;
 
 -(PLFormPinDot*)createDotWithTag:(NSInteger)tag;
 -(void)updateWithElement:(PLFormPinFieldElement*)element;

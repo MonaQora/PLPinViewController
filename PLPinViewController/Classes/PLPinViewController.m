@@ -12,9 +12,8 @@
 #import "PLPinWindow.h"
 #import "PLSlideTransition.h"
 #import "PLFormPinField.h"
-#import "PLStyleButton.h"
 #import "PLPinAppearance.h"
-
+#import "PLPinButton.h"
 
 #define IS_SHORTSCREEN ( fabs( ( double )[ [ UIScreen mainScreen ] bounds ].size.height - ( double )480 ) < DBL_EPSILON )
 #define DOT_CONTAINER_TAG 1111
@@ -22,7 +21,7 @@
 @interface PLPinViewController () <UINavigationControllerDelegate>
 
 @property (weak, nonatomic) IBOutlet UIView *inputView;
-@property (strong, nonatomic) IBOutletCollection(PLStyleButton) NSArray *numberButtons;
+@property (strong, nonatomic) IBOutletCollection(PLPinButton) NSArray *numberButtons;
 @property (weak, nonatomic) IBOutlet UIButton *deleteButton;
 
 @property (nonatomic,strong) NSString *lastIdentifier;
@@ -98,7 +97,7 @@
 
 -(void)viewDidLayoutSubviews
 {
-    for (PLStyleButton *button in self.numberButtons)
+    for (PLPinButton *button in self.numberButtons)
     {
         button.cornerRadius = button.bounds.size.width / 2.0f;
     }
@@ -108,7 +107,7 @@
 -(void)setupAppearance
 {
     PLPinAppearance *appearance = [PLPinWindow defaultInstance].pinAppearance;
-    for (PLStyleButton *button in self.numberButtons)
+    for (PLPinButton *button in self.numberButtons)
     {
         [button setTintColor:appearance.numberButtonColor];
         [button setTitleColor:appearance.numberButtonTitleColor forState:UIControlStateNormal];

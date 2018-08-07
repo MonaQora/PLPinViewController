@@ -50,8 +50,6 @@
 
 -(void)setup
 {
-    [super setup];
-
     //set up the reject character set
     NSMutableCharacterSet *numSet = [[NSCharacterSet decimalDigitCharacterSet] mutableCopy];
     [numSet formUnionWithCharacterSet:[NSCharacterSet whitespaceCharacterSet]];
@@ -72,6 +70,10 @@
     _unselectedUnderlineColor = [UIColor darkGrayColor];
     _highlightedUnderlineColor = [UIColor darkGrayColor];
     _selectedUnderlineColor = [UIColor darkGrayColor];
+    
+    _borderColor = [UIColor blackColor];
+    _borderWidth = 0;
+    _cornerRadius = 0;
 }
 
 -(void)dealloc
@@ -86,6 +88,24 @@
     PLFormPinDot *dot = [PLFormPinDot new];
     dot.tag = tag;
     return dot;
+}
+
+- (void) setBorderColor:(UIColor *)borderColor
+{
+    _borderColor = borderColor;
+    self.layer.borderColor = _borderColor.CGColor;
+}
+
+- (void) setBorderWidth:(CGFloat)borderWidth
+{
+    _borderWidth = borderWidth;
+    self.layer.borderWidth = _borderWidth;
+}
+
+- (void) setCornerRadius:(CGFloat)cornerRadius
+{
+    _cornerRadius = cornerRadius;
+    self.layer.cornerRadius = cornerRadius;
 }
 
 -(void)updateWithElement:(PLFormPinFieldElement*)element

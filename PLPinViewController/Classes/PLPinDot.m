@@ -60,8 +60,8 @@
 {
     _state = state;
     
-    void (^stateBlock)() = ^{
-        switch (_state) {
+    void (^stateBlock)(void) = ^{
+        switch (self.state) {
                 
             case PLPinDotStateUnselected:
                 self.layer.borderColor = self.unselectedBorderColor.CGColor;

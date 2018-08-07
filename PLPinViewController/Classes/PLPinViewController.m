@@ -29,15 +29,11 @@
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *keypadHeightConstraint;
 
 @property (nonatomic, strong) NSMutableString *currentPin;
+@property (nonatomic, strong) UIViewController *currentController;
 
 @end
 
 @implementation PLPinViewController
-
-+ (void)showControllerWithAction:(PLPinViewControllerAction)action enableCancel:(BOOL)enableCancel delegate:(id<PLPinViewControllerDelegate>)delegate animated:(BOOL)animated
-{
-    [self showControllerWithAction:action enableCancel:enableCancel pinLength:5 delegate:delegate animated:animated];
-}
 
 + (void)showControllerWithAction:(PLPinViewControllerAction)action enableCancel:(BOOL)enableCancel  pinLength:(NSInteger)pinLength delegate:(id<PLPinViewControllerDelegate>)delegate animated:(BOOL)animated
 {
@@ -222,7 +218,7 @@
         [self transitionFromViewController:_currentController toViewController:viewControllerToPresent duration:0.3f options:0
                                 animations:^
          {
-             _currentController.view.alpha = 0.0f;
+             self.currentController.view.alpha = 0.0f;
              viewControllerToPresent.view.transform = CGAffineTransformIdentity;
              viewControllerToPresent.view.alpha = 1.0f;
          }
@@ -230,8 +226,8 @@
          {
              [self.view bringSubviewToFront:self.inputView];
              [viewControllerToPresent didMoveToParentViewController:self];
-             [_currentController removeFromParentViewController];
-             _currentController = viewControllerToPresent;
+             [self.currentController removeFromParentViewController];
+             self.currentController = viewControllerToPresent;
          }];
     }
     else

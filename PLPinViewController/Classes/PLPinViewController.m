@@ -11,7 +11,7 @@
 #import "PLEnterPinViewController.h"
 #import "PLPinWindow.h"
 #import "PLSlideTransition.h"
-#import "PLFormPinField.h"
+#import "PLPinField.h"
 #import "PLPinAppearance.h"
 #import "PLPinButton.h"
 
@@ -122,7 +122,7 @@
     
     [self.deleteButton setTintColor:appearance.deleteButtonColor];
     
-    id dotAppearance = [PLFormPinDot appearanceWhenContainedInInstancesOfClasses:@[[UIStackView class]]];
+    id dotAppearance = [PLPinDot appearanceWhenContainedInInstancesOfClasses:@[[UIStackView class]]];
     [dotAppearance setUnselectedBorderColor:[UIColor clearColor]];
     [dotAppearance setHighlightedBorderColor:[UIColor clearColor]];
     [dotAppearance setSelectedBorderColor:appearance.pinHighlightedColor];
@@ -143,7 +143,7 @@
         
         for (int i=0; i < self.pinLength; i++)
         {
-            PLFormPinDot *dot = [PLFormPinDot new];
+            PLPinDot *dot = [PLPinDot new];
             dot.tag = i;
             
             [dot.heightAnchor constraintEqualToConstant:dotSize].active = YES;
@@ -153,7 +153,7 @@
         }
     }
     
-    for (PLFormPinDot *dot in containerView.subviews)
+    for (PLPinDot *dot in containerView.subviews)
     {
         dot.state = PLPinDotStateUnselected;
     }
@@ -282,7 +282,7 @@
 - (void)setState:(PLPinDotState)state forDotWithTag:(NSInteger)tag
 {
     UIStackView *containerView = [self firstPinContainerInView:self.view];
-    PLFormPinDot *dot = (PLFormPinDot *)[containerView viewWithTag:tag];
+    PLPinDot *dot = (PLPinDot *)[containerView viewWithTag:tag];
     dot.state = state;
 }
 

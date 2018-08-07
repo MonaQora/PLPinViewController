@@ -7,13 +7,13 @@
 //
 
 #import "PLCreatePinViewController.h"
-#import "PLFormPinField.h"
+#import "PLPinField.h"
 #import "PLPinAppearance.h"
 #import "PLPinViewController.h"
 #import "PLPinWindow.h"
 
 
-@interface PLCreatePinViewController () <PLFormElementDelegate>
+@interface PLCreatePinViewController () 
 
 
 @property (weak, nonatomic) IBOutlet UILabel *errorLabel;

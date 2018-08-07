@@ -1,15 +1,15 @@
 //
 //  PLPinDot.m
-//  PLForm
+//  PLPinViewController
 //
 //  Created by Ash Thwaites on 11/12/2015.
 //  Copyright (c) 2015 Pitch Labs. All rights reserved.
 //
 
 
-#import "PLFormPinDot.h"
+#import "PLPinDot.h"
 
-@implementation PLFormPinDot
+@implementation PLPinDot
 
 -(void)setup
 {

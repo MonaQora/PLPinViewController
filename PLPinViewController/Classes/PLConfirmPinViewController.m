@@ -7,13 +7,13 @@
 //
 
 #import "PLConfirmPinViewController.h"
-#import "PLFormPinField.h"
+#import "PLPinField.h"
 #import "PLPinViewController.h"
 #import "PLPinWindow.h"
 #import "PLPinAppearance.h"
 
 
-@interface PLConfirmPinViewController () <PLFormElementDelegate>
+@interface PLConfirmPinViewController ()
 
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 @property (weak, nonatomic) IBOutlet UILabel *messageLabel;

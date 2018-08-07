@@ -7,15 +7,15 @@
 //
 
 #import "PLEnterPinViewController.h"
-#import "PLFormPinField.h"
+#import "PLPinField.h"
 #import "PLPinViewController.h"
 #import "PLPinWindow.h"
 #import "PLPinAppearance.h"
 
 
-@interface PLEnterPinViewController () <PLFormElementDelegate>
+@interface PLEnterPinViewController ()
 
-@property (weak, nonatomic) IBOutlet PLFormPinField *pinField;
+@property (weak, nonatomic) IBOutlet PLPinField *pinField;
 @property (weak, nonatomic) IBOutlet UIView *errorView;
 @property (weak, nonatomic) IBOutlet UIButton *cancelButton;
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;

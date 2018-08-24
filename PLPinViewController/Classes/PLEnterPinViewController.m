@@ -47,13 +47,15 @@
     self.titleLabel.textColor = [PLPinWindow defaultInstance].pinAppearance.titleColor;
     self.messageLabel.font = [PLPinWindow defaultInstance].pinAppearance.messageFont;
     self.messageLabel.textColor = [PLPinWindow defaultInstance].pinAppearance.messageColor;
-    
+    self.forgottenPinLabel.font = [PLPinWindow defaultInstance].pinAppearance.logoutLabelFont;
+    self.forgottenPinLabel.textColor = [PLPinWindow defaultInstance].pinAppearance.logoutLabelTextColor;
+    self.errorLabel.font = [PLPinWindow defaultInstance].pinAppearance.errorFont;
+    self.errorLabel.textColor = [PLPinWindow defaultInstance].pinAppearance.errorColor;
+
     self.titleLabel.text = NSLocalizedString(@"WELCOME BACK", @"WELCOME BACK");
     self.messageLabel.text = NSLocalizedString(@"Enter your pin code to log in", @"Enter your pin code to log in");
     self.forgottenPinLabel.text = NSLocalizedString(@"Forgotten Pin?", "Forgotten Pin?");
     self.errorLabel.text = NSLocalizedString(@"You have entered an incorrect pin.", "You have entered an incorrect pin.");
-    self.errorLabel.font = [PLPinWindow defaultInstance].pinAppearance.errorFont;
-    self.errorLabel.textColor = [PLPinWindow defaultInstance].pinAppearance.errorColor;
     
     [self.cancelButton setTitle: NSLocalizedString(@"Cancel", @"Cancel") forState: UIControlStateNormal];
     self.cancelButton.titleLabel.font = [PLPinWindow defaultInstance].pinAppearance.cancelButtonFont;

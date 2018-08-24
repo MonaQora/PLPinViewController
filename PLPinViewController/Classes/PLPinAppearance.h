@@ -25,6 +25,8 @@
 
 @property (nonatomic, strong) UIFont *logoutButtonFont;
 @property (nonatomic, strong) UIColor *logoutButtonTextColor;
+@property (nonatomic, strong) UIFont *logoutLabelFont;
+@property (nonatomic, strong) UIColor *logoutLabelTextColor;
 
 @property (nonatomic, strong) UIColor *pinFillColor;
 @property (nonatomic, strong) UIColor *pinHighlightedColor;

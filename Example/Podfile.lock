@@ -10,16 +10,22 @@ DEPENDENCIES:
   - PLPinViewController (from `../`)
   - Reveal-SDK
 
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - Expecta
+    - OCMock
+    - Reveal-SDK
+
 EXTERNAL SOURCES:
   PLPinViewController:
-    :path: ../
+    :path: "../"
 
 SPEC CHECKSUMS:
   Expecta: 3b6bd90a64b9a1dcb0b70aa0e10a7f8f631667d5
   OCMock: 35ae71d6a8fcc1b59434d561d1520b9dd4f15765
-  PLPinViewController: a1ab22ac735396173b541f88a804cd89a63a188a
+  PLPinViewController: ce2a0da40783b751e48941cc339c1ac1622f111c
   Reveal-SDK: 7fa13d04bb55db61ff2342a990cf731d5159361d
 
 PODFILE CHECKSUM: 0408a073ca26e04e7ba84fc308e8577bff3de410
 
-COCOAPODS: 1.4.0
+COCOAPODS: 1.5.3

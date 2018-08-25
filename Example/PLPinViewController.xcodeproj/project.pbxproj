@@ -7,17 +7,20 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		107E1C8C1D8DF26300D20460 /* PLExampleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 107E1C8B1D8DF26300D20460 /* PLExampleViewController.m */; };
 		107E1C8D1D8DF28200D20460 /* PLPinViewControllerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 107E1C821D8DF23800D20460 /* PLPinViewControllerTests.m */; };
 		107E1C8E1D8DF28600D20460 /* PLRunLoopRunUntil.m in Sources */ = {isa = PBXBuildFile; fileRef = 107E1C841D8DF23800D20460 /* PLRunLoopRunUntil.m */; };
 		107E1C8F1D8DF28A00D20460 /* PLTestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = 107E1C861D8DF23800D20460 /* PLTestCase.m */; };
 		107E1C911D8DF55A00D20460 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 107E1C901D8DF55A00D20460 /* LaunchScreen.storyboard */; };
+		10A8A4FF21315A3F00DA8C61 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10A8A4FE21315A3F00DA8C61 /* AppDelegate.swift */; };
+		10A8A50121315B2900DA8C61 /* PLExampleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10A8A50021315B2900DA8C61 /* PLExampleViewController.swift */; };
+		10A8A50421315B9200DA8C61 /* KeychainConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10A8A50221315B9100DA8C61 /* KeychainConfiguration.swift */; };
+		10A8A50521315B9200DA8C61 /* KeychainPasswordItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10A8A50321315B9200DA8C61 /* KeychainPasswordItem.swift */; };
+		10A8A50821315C8400DA8C61 /* UIColor+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10A8A50621315C8400DA8C61 /* UIColor+Additions.swift */; };
+		10A8A50921315C8400DA8C61 /* UIFont+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10A8A50721315C8400DA8C61 /* UIFont+Additions.swift */; };
 		6003F58E195388D20070C39A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58D195388D20070C39A /* Foundation.framework */; };
 		6003F590195388D20070C39A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58F195388D20070C39A /* CoreGraphics.framework */; };
 		6003F592195388D20070C39A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F591195388D20070C39A /* UIKit.framework */; };
 		6003F598195388D20070C39A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6003F596195388D20070C39A /* InfoPlist.strings */; };
-		6003F59A195388D20070C39A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 6003F599195388D20070C39A /* main.m */; };
-		6003F59E195388D20070C39A /* PLAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6003F59D195388D20070C39A /* PLAppDelegate.m */; };
 		6003F5A9195388D20070C39A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6003F5A8195388D20070C39A /* Images.xcassets */; };
 		6003F5B0195388D20070C39A /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F5AF195388D20070C39A /* XCTest.framework */; };
 		6003F5B1195388D20070C39A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58D195388D20070C39A /* Foundation.framework */; };
@@ -44,9 +47,13 @@
 		107E1C841D8DF23800D20460 /* PLRunLoopRunUntil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PLRunLoopRunUntil.m; sourceTree = "<group>"; };
 		107E1C851D8DF23800D20460 /* PLTestCase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PLTestCase.h; sourceTree = "<group>"; };
 		107E1C861D8DF23800D20460 /* PLTestCase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PLTestCase.m; sourceTree = "<group>"; };
-		107E1C8A1D8DF26300D20460 /* PLExampleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PLExampleViewController.h; sourceTree = "<group>"; };
-		107E1C8B1D8DF26300D20460 /* PLExampleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PLExampleViewController.m; sourceTree = "<group>"; };
 		107E1C901D8DF55A00D20460 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
+		10A8A4FE21315A3F00DA8C61 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		10A8A50021315B2900DA8C61 /* PLExampleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PLExampleViewController.swift; sourceTree = "<group>"; };
+		10A8A50221315B9100DA8C61 /* KeychainConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeychainConfiguration.swift; sourceTree = "<group>"; };
+		10A8A50321315B9200DA8C61 /* KeychainPasswordItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeychainPasswordItem.swift; sourceTree = "<group>"; };
+		10A8A50621315C8400DA8C61 /* UIColor+Additions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+Additions.swift"; sourceTree = "<group>"; };
+		10A8A50721315C8400DA8C61 /* UIFont+Additions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIFont+Additions.swift"; sourceTree = "<group>"; };
 		20F6265BB674A8725CB48212 /* Pods_PLPinViewController_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PLPinViewController_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2D9A546A8E1DAC6C9361D222 /* Pods-PLPinViewController_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PLPinViewController_Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-PLPinViewController_Example/Pods-PLPinViewController_Example.release.xcconfig"; sourceTree = "<group>"; };
 		3623F67CEF232C76C5A28E0A /* PLPinViewController.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = PLPinViewController.podspec; path = ../PLPinViewController.podspec; sourceTree = "<group>"; };
@@ -58,10 +65,6 @@
 		6003F591195388D20070C39A /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		6003F595195388D20070C39A /* PLPinViewController-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "PLPinViewController-Info.plist"; sourceTree = "<group>"; };
 		6003F597195388D20070C39A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		6003F599195388D20070C39A /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		6003F59B195388D20070C39A /* PLPinViewController-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "PLPinViewController-Prefix.pch"; sourceTree = "<group>"; };
-		6003F59C195388D20070C39A /* PLAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PLAppDelegate.h; sourceTree = "<group>"; };
-		6003F59D195388D20070C39A /* PLAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PLAppDelegate.m; sourceTree = "<group>"; };
 		6003F5A8195388D20070C39A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		6003F5AE195388D20070C39A /* PLPinViewController_Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PLPinViewController_Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		6003F5AF195388D20070C39A /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
@@ -149,14 +152,16 @@
 		6003F593195388D20070C39A /* Example for PLPinViewController */ = {
 			isa = PBXGroup;
 			children = (
-				107E1C8A1D8DF26300D20460 /* PLExampleViewController.h */,
-				107E1C8B1D8DF26300D20460 /* PLExampleViewController.m */,
-				6003F59C195388D20070C39A /* PLAppDelegate.h */,
-				6003F59D195388D20070C39A /* PLAppDelegate.m */,
+				10A8A50621315C8400DA8C61 /* UIColor+Additions.swift */,
+				10A8A50721315C8400DA8C61 /* UIFont+Additions.swift */,
+				10A8A50221315B9100DA8C61 /* KeychainConfiguration.swift */,
+				10A8A50321315B9200DA8C61 /* KeychainPasswordItem.swift */,
 				873B8AEA1B1F5CCA007FD442 /* Main.storyboard */,
 				107E1C901D8DF55A00D20460 /* LaunchScreen.storyboard */,
 				6003F5A8195388D20070C39A /* Images.xcassets */,
 				6003F594195388D20070C39A /* Supporting Files */,
+				10A8A4FE21315A3F00DA8C61 /* AppDelegate.swift */,
+				10A8A50021315B2900DA8C61 /* PLExampleViewController.swift */,
 			);
 			name = "Example for PLPinViewController";
 			path = PLPinViewController;
@@ -167,8 +172,6 @@
 			children = (
 				6003F595195388D20070C39A /* PLPinViewController-Info.plist */,
 				6003F596195388D20070C39A /* InfoPlist.strings */,
-				6003F599195388D20070C39A /* main.m */,
-				6003F59B195388D20070C39A /* PLPinViewController-Prefix.pch */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -260,6 +263,7 @@
 				TargetAttributes = {
 					6003F589195388D20070C39A = {
 						DevelopmentTeam = Z6EK3Y837D;
+						LastSwiftMigration = 0940;
 					};
 					6003F5AD195388D20070C39A = {
 						TestTargetID = 6003F589195388D20070C39A;
@@ -391,9 +395,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6003F59E195388D20070C39A /* PLAppDelegate.m in Sources */,
-				107E1C8C1D8DF26300D20460 /* PLExampleViewController.m in Sources */,
-				6003F59A195388D20070C39A /* main.m in Sources */,
+				10A8A50521315B9200DA8C61 /* KeychainPasswordItem.swift in Sources */,
+				10A8A50821315C8400DA8C61 /* UIColor+Additions.swift in Sources */,
+				10A8A50121315B2900DA8C61 /* PLExampleViewController.swift in Sources */,
+				10A8A4FF21315A3F00DA8C61 /* AppDelegate.swift in Sources */,
+				10A8A50921315C8400DA8C61 /* UIFont+Additions.swift in Sources */,
+				10A8A50421315B9200DA8C61 /* KeychainConfiguration.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -542,14 +549,17 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = Z6EK3Y837D;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "PLPinViewController/PLPinViewController-Prefix.pch";
 				INFOPLIST_FILE = "PLPinViewController/PLPinViewController-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MODULE_NAME = ExampleApp;
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -560,14 +570,16 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = Z6EK3Y837D;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "PLPinViewController/PLPinViewController-Prefix.pch";
 				INFOPLIST_FILE = "PLPinViewController/PLPinViewController-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MODULE_NAME = ExampleApp;
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
@@ -576,6 +588,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 421FBC2CD3509A386D628E5D /* Pods-PLPinViewController_Tests.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
@@ -600,6 +613,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 8D7542066058E691AA193531 /* Pods-PLPinViewController_Tests.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",

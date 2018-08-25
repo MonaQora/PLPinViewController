@@ -1,76 +1,42 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="M6q-yk-WWe">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="30R-82-fuB">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--Example View Controller-->
-        <scene sceneID="wQg-tq-qST">
+        <scene sceneID="tFX-Hu-ncp">
             <objects>
-                <viewController id="whP-gf-Uak" customClass="PLExampleViewController" sceneMemberID="viewController">
+                <viewController id="30R-82-fuB" customClass="PLExampleViewController" customModule="PLPinViewController_Example" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="uEw-UM-LJ8"/>
-                        <viewControllerLayoutGuide type="bottom" id="Mvr-aV-6Um"/>
+                        <viewControllerLayoutGuide type="top" id="FZU-gJ-Ldn"/>
+                        <viewControllerLayoutGuide type="bottom" id="xeG-Kl-BEi"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="TpU-gO-2f1">
+                    <view key="view" contentMode="scaleToFill" id="kaH-SN-Qk5">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Cx4-gN-LN1">
-                                <state key="normal" title="Create Pin"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jIP-56-htI">
+                                <rect key="frame" x="147" y="168" width="81" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Change PIN"/>
                                 <connections>
-                                    <action selector="createPinPressed:" destination="whP-gf-Uak" eventType="touchUpInside" id="W7b-21-ugZ"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iqm-N1-dh5">
-                                <state key="normal" title="Change Pin"/>
-                                <connections>
-                                    <action selector="changePinPressed:" destination="whP-gf-Uak" eventType="touchUpInside" id="iOV-pa-5MA"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7vV-Jn-O6C">
-                                <state key="normal" title="Enter Pin"/>
-                                <connections>
-                                    <action selector="enterPinPressed:" destination="whP-gf-Uak" eventType="touchUpInside" id="FpH-hJ-olO"/>
+                                    <action selector="changePinPressed:" destination="30R-82-fuB" eventType="touchUpInside" id="Qd7-OX-g4b"/>
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <constraints>
-                            <constraint firstItem="iqm-N1-dh5" firstAttribute="top" secondItem="Cx4-gN-LN1" secondAttribute="bottom" constant="20" id="2Cy-RQ-MLj"/>
-                            <constraint firstItem="Cx4-gN-LN1" firstAttribute="centerX" secondItem="TpU-gO-2f1" secondAttribute="centerX" id="4xy-GG-qTx"/>
-                            <constraint firstItem="iqm-N1-dh5" firstAttribute="centerX" secondItem="TpU-gO-2f1" secondAttribute="centerX" id="Rbx-H7-2Lz"/>
-                            <constraint firstItem="7vV-Jn-O6C" firstAttribute="centerX" secondItem="TpU-gO-2f1" secondAttribute="centerX" id="SAU-tD-qbQ"/>
-                            <constraint firstItem="Cx4-gN-LN1" firstAttribute="top" secondItem="uEw-UM-LJ8" secondAttribute="bottom" constant="76" id="mac-1t-cGN"/>
-                            <constraint firstItem="7vV-Jn-O6C" firstAttribute="top" secondItem="iqm-N1-dh5" secondAttribute="bottom" constant="20" id="rbn-uP-EX0"/>
-                        </constraints>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </view>
-                    <navigationItem key="navigationItem" id="DTO-4E-OWI"/>
+                    <navigationItem key="navigationItem" id="o15-4j-7Cc"/>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="tc2-Qw-aMS" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="L9M-99-vPc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1244" y="432.23388305847078"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="pPf-53-blh">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="M6q-yk-WWe" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-                    <size key="freeformSize" width="375" height="667"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="oBB-MU-Obh">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="whP-gf-Uak" kind="relationship" relationship="rootViewController" id="ucF-tN-La0"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="xww-Js-PWZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="304.80000000000001" y="432.23388305847078"/>
+            <point key="canvasLocation" x="1172" y="432"/>
         </scene>
     </scenes>
 </document>

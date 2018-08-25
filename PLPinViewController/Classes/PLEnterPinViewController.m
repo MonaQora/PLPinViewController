@@ -130,11 +130,33 @@
     
     [self.view endEditing:YES];
     
-    PLPinViewController *vc = (PLPinViewController*)[PLPinWindow defaultInstance].rootViewController;
-    if ([vc.pinDelegate respondsToSelector:@selector(pinViewControllerDidLogout:)])
-    {
-        [vc.pinDelegate pinViewControllerDidLogout:vc];
-    }
+    UIAlertController *alertController = [UIAlertController
+                                          alertControllerWithTitle:NSLocalizedString(@"Logout", @"Logout")
+                                          message:NSLocalizedString(@"Are you sure you want to logout?",@"Are you sure you want to logout?")
+                                          preferredStyle:UIAlertControllerStyleAlert];
+    
+    UIAlertAction *cancelAction = [UIAlertAction
+                                   actionWithTitle:NSLocalizedString(@"Cancel", @"Cancel action")
+                                   style:UIAlertActionStyleCancel
+                                   handler:^(UIAlertAction *action)
+                                   {
+                                   }];
+    
+    UIAlertAction *okAction = [UIAlertAction
+                               actionWithTitle:NSLocalizedString(@"OK", @"OK action")
+                               style:UIAlertActionStyleDefault
+                               handler:^(UIAlertAction *action)
+                               {
+                                   PLPinViewController *vc = (PLPinViewController*)[PLPinWindow defaultInstance].rootViewController;
+                                   if ([vc.pinDelegate respondsToSelector:@selector(pinViewControllerDidLogout:)])
+                                   {
+                                       [vc.pinDelegate pinViewControllerDidLogout:vc];
+                                   }
+                               }];
+    
+    [alertController addAction:cancelAction];
+    [alertController addAction:okAction];
+    [self presentViewController:alertController animated:YES completion:nil];
 }
 
 

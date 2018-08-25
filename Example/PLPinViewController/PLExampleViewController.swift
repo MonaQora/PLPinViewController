@@ -20,7 +20,12 @@ class PLExampleViewController: UIViewController {
         super.viewDidAppear(animated)
     }
     
-
+    @IBAction func alertPressed(_ sender: Any) {
+        let alert = UIAlertController(title: nil, message: "test PIN above alert", preferredStyle: UIAlertControllerStyle.alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        present(alert, animated: true, completion: nil)
+    }
+    
     @IBAction func changePinPressed(_ sender: Any) {
         let pinItem = KeychainPasswordItem(service: KeychainConfiguration.serviceName, account: "apppin", accessGroup: KeychainConfiguration.accessGroup)
         if let _ = try? pinItem.readPassword() {

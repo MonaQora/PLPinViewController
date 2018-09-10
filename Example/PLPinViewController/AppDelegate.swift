@@ -89,8 +89,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         pinAppearance?.errorColor = UIColor.red
         pinAppearance?.errorFont = UIFont.textStyle6
         pinAppearance?.enterPinErrorMessageVisibleDuration = 3.0
-        pinAppearance?.cancelButtonFont = UIFont.boldSystemFont(ofSize: 17)
-        pinAppearance?.cancelButtonTextColor = UIColor.white
+        pinAppearance?.cancelButtonTintColor = UIColor.white
         pinAppearance?.logoutButtonTextColor = UIColor.white
         pinAppearance?.logoutButtonFont = UIFont.textStyle2
         pinAppearance?.logoutLabelTextColor = UIColor.coolGrey

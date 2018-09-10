@@ -23,6 +23,8 @@
 @property (nonatomic, strong) UIFont *cancelButtonFont;
 @property (nonatomic, strong) UIColor *cancelButtonTextColor;
 
+@property (nonatomic, strong) UIColor *cancelButtonTintColor;
+
 @property (nonatomic, strong) UIFont *logoutButtonFont;
 @property (nonatomic, strong) UIColor *logoutButtonTextColor;
 @property (nonatomic, strong) UIFont *logoutLabelFont;

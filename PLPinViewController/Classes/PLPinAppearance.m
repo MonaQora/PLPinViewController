@@ -39,6 +39,8 @@
     self.cancelButtonFont = [UIFont systemFontOfSize:17.0f];
     self.cancelButtonTextColor = [UIColor redColor];
     
+    self.cancelButtonTintColor = [UIColor redColor];
+
     self.logoutButtonFont = [UIFont systemFontOfSize:17.0f];
     self.logoutButtonTextColor = [UIColor redColor];
     

@@ -57,9 +57,13 @@
     self.forgottenPinLabel.text = NSLocalizedString(@"Forgotten Pin?", "Forgotten Pin?");
     self.errorLabel.text = NSLocalizedString(@"You have entered an incorrect pin.", "You have entered an incorrect pin.");
     
-    [self.cancelButton setTitle: NSLocalizedString(@"Cancel", @"Cancel") forState: UIControlStateNormal];
+    [self.cancelButton setTitle: NSLocalizedString(@"", @"") forState: UIControlStateNormal];
     self.cancelButton.titleLabel.font = [PLPinWindow defaultInstance].pinAppearance.cancelButtonFont;
     [self.cancelButton setTitleColor:[PLPinWindow defaultInstance].pinAppearance.cancelButtonTextColor forState:UIControlStateNormal];
+    
+    [self.cancelButton setTitleColor:[PLPinWindow defaultInstance].pinAppearance.cancelButtonTextColor forState:UIControlStateNormal];
+
+    [self.cancelButton setTintColor:[PLPinWindow defaultInstance].pinAppearance.cancelButtonTintColor];
     
     [self.logoutButton setTitle: NSLocalizedString(@"Log Out", @"Log Out") forState: UIControlStateNormal];
     self.logoutButton.titleLabel.font = [PLPinWindow defaultInstance].pinAppearance.logoutButtonFont;
@@ -136,7 +140,7 @@
                                           preferredStyle:UIAlertControllerStyleAlert];
     
     UIAlertAction *cancelAction = [UIAlertAction
-                                   actionWithTitle:NSLocalizedString(@"Cancel", @"Cancel action")
+                                   actionWithTitle:NSLocalizedString(@"", @"Cancel action")
                                    style:UIAlertActionStyleCancel
                                    handler:^(UIAlertAction *action)
                                    {

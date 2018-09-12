@@ -96,6 +96,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         pinAppearance?.statusBarStyle = UIStatusBarStyle.lightContent
         pinAppearance?.errorColor = UIColor.red
         pinAppearance?.errorFont = UIFont.textStyle6
+        pinAppearance?.errorWrongPinMessage = "Pincodes don't match. Please try again"
         pinAppearance?.enterPinErrorMessageVisibleDuration = 1.0
         pinAppearance?.cancelButtonTintColor = UIColor.white
         pinAppearance?.logoutButtonTextColor = UIColor.white

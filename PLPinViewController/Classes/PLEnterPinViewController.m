@@ -61,7 +61,7 @@
     self.titleLabel.text = NSLocalizedString(@"WELCOME BACK", @"WELCOME BACK");
     self.messageLabel.text = NSLocalizedString(@"Enter your pin code to log in", @"Enter your pin code to log in");
     self.forgottenPinLabel.text = NSLocalizedString(@"Forgotten Pin?", "Forgotten Pin?");
-    self.errorLabel.text = NSLocalizedString(@"You have entered an incorrect pin.", "You have entered an incorrect pin.");
+    self.errorLabel.text = [PLPinWindow defaultInstance].pinAppearance.errorWrongPinMessage;
     
     [self.cancelButton setTitle: NSLocalizedString(@"", @"") forState: UIControlStateNormal];
     self.cancelButton.titleLabel.font = [PLPinWindow defaultInstance].pinAppearance.cancelButtonFont;

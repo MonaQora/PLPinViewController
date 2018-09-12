@@ -49,6 +49,7 @@
 @property (nonatomic, strong) UIColor *messageColor;
 @property (nonatomic, strong) UIFont *errorFont;
 @property (nonatomic, strong) UIColor *errorColor;
+@property (nonatomic, strong) NSString *errorWrongPinMessage;
 
 @property CGFloat enterPinErrorMessageVisibleDuration;
 

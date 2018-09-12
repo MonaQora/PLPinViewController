@@ -59,6 +59,7 @@
     self.messageColor = [UIColor colorWithRed:131.0f / 255.0f green:136.0f / 255.0f blue:152.0f / 255.0f alpha:1];
     self.errorFont = [UIFont boldSystemFontOfSize:10];
     self.errorColor = [UIColor blackColor];
+    self.errorWrongPinMessage = NSLocalizedString(@"You have entered an incorrect pin.", "You have entered an incorrect pin.");
     
     self.enterPinErrorMessageVisibleDuration = 1.0f;
     

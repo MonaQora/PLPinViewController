@@ -97,4 +97,13 @@
 }
 
 
++ (CAGradientLayer*) gradianLayer:(CGRect)frame {
+    CAGradientLayer *gradient = [CAGradientLayer layer];
+    gradient.frame = frame;
+    gradient.startPoint = CGPointZero;
+    gradient.endPoint = CGPointMake(0, 1);
+    gradient.colors = [NSArray arrayWithObjects:(id)[[PLPinWindow defaultInstance].pinAppearance.gradienUpperColor CGColor],(id)[[PLPinWindow defaultInstance].pinAppearance.gradienBottomColor CGColor], nil];
+    return gradient;
+}
+
 @end

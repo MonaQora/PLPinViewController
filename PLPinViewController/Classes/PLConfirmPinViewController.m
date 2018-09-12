@@ -36,6 +36,12 @@
 -(void)setupAppearance
 {
     self.view.backgroundColor = [PLPinWindow defaultInstance].pinAppearance.backgroundColor;
+    CAGradientLayer *gradient = [PLPinWindow gradianLayer:self.view.frame];
+    UIView *bgView = [[UIView alloc] initWithFrame:self.view.frame];
+    [bgView.layer addSublayer:gradient];
+    [self.view addSubview:bgView];
+    [self.view sendSubviewToBack:bgView];
+    
     self.titleLabel.font = [PLPinWindow defaultInstance].pinAppearance.titleFont;
     self.titleLabel.textColor = [PLPinWindow defaultInstance].pinAppearance.titleColor;
     self.messageLabel.font = [PLPinWindow defaultInstance].pinAppearance.messageFont;

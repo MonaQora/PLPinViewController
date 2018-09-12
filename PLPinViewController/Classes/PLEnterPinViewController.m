@@ -42,7 +42,13 @@
 -(void)setupAppearance
 {
     self.view.backgroundColor = [PLPinWindow defaultInstance].pinAppearance.backgroundColor;
-    self.errorView.backgroundColor = [PLPinWindow defaultInstance].pinAppearance.backgroundColor;
+    CAGradientLayer *gradient = [PLPinWindow gradianLayer:self.view.frame];
+    UIView *bgView = [[UIView alloc] initWithFrame:self.view.frame];
+    [bgView.layer addSublayer:gradient];
+    [self.view addSubview:bgView];
+    [self.view sendSubviewToBack:bgView];
+    
+    self.errorView.backgroundColor = [UIColor clearColor];
     self.titleLabel.font = [PLPinWindow defaultInstance].pinAppearance.titleFont;
     self.titleLabel.textColor = [PLPinWindow defaultInstance].pinAppearance.titleColor;
     self.messageLabel.font = [PLPinWindow defaultInstance].pinAppearance.messageFont;
@@ -105,9 +111,13 @@
 -(void)incorrectPin:(NSString *)pin
 {
     self.errorView.alpha = 0.0f;
+    self.logoutButton.alpha = 1.0f;
+    self.forgottenPinLabel.alpha = 1.0f;
     [[UIApplication sharedApplication]beginIgnoringInteractionEvents];
     [UIView animateWithDuration:0.3f animations:^{
         self.errorView.alpha = 1.0f;
+        self.logoutButton.alpha = 0.0f;
+        self.forgottenPinLabel.alpha = 0.0f;
     } completion:^(BOOL finished) {
         [[UIApplication sharedApplication]endIgnoringInteractionEvents];
         
@@ -121,6 +131,8 @@
                             options:0
                          animations:^{
                              self.errorView.alpha = 0.0f;
+                             self.logoutButton.alpha = 1.0f;
+                             self.forgottenPinLabel.alpha = 1.0f;
                          } completion:^(BOOL finished) {
                          }];
         

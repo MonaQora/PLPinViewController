@@ -50,6 +50,9 @@
     self.pinSize = 20;
 
     self.backgroundColor = [UIColor whiteColor];
+    self.gradienUpperColor = [UIColor clearColor];
+    self.gradienBottomColor = [UIColor clearColor];
+
     self.titleFont = [UIFont systemFontOfSize:17];
     self.titleColor = [UIColor colorWithRed:30.0f / 255.0f green:175.0f / 255.0f blue:216.0f / 255.0f alpha:1];
     self.messageFont = [UIFont systemFontOfSize:17];

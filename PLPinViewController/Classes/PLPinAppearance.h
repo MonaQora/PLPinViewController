@@ -40,6 +40,8 @@
 @property (nonatomic, assign) CGFloat pinSize;
 
 @property (nonatomic, strong) UIColor *backgroundColor;
+@property (nonatomic, strong) UIColor *gradienUpperColor;
+@property (nonatomic, strong) UIColor *gradienBottomColor;
 
 @property (nonatomic, strong) UIFont *titleFont;
 @property (nonatomic, strong) UIColor *titleColor;

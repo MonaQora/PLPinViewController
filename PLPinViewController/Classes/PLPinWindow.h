@@ -18,6 +18,6 @@
 
 -(void)showAnimated:(BOOL)animated;
 -(void)hideAnimated:(BOOL)animated;
-
++ (CAGradientLayer*) gradianLayer:(CGRect)frame;
 
 @end

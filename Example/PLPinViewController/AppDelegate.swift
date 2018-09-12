@@ -75,9 +75,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     private func setupAppearance() {
         let pinAppearance = PLPinAppearance.default()
         pinAppearance?.backgroundColor = UIColor.tealish
-
+        pinAppearance?.gradienUpperColor = UIColor.aquaMarine
+        pinAppearance?.gradienBottomColor = UIColor.tealish
+        
         pinAppearance?.numberButtonColor = UIColor.tealish
-        pinAppearance?.numberButtonBackgroundColor = UIColor.aquaMarine
+        pinAppearance?.numberButtonBackgroundColor = UIColor.white20
         pinAppearance?.numberButtonTitleColor = UIColor.white
         pinAppearance?.numberButtonStrokeColor = UIColor.aquaMarine
         pinAppearance?.numberButtonFont = UIFont.systemFont(ofSize: 36.0)
@@ -94,11 +96,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         pinAppearance?.statusBarStyle = UIStatusBarStyle.lightContent
         pinAppearance?.errorColor = UIColor.red
         pinAppearance?.errorFont = UIFont.textStyle6
-        pinAppearance?.enterPinErrorMessageVisibleDuration = 3.0
+        pinAppearance?.enterPinErrorMessageVisibleDuration = 1.0
         pinAppearance?.cancelButtonTintColor = UIColor.white
         pinAppearance?.logoutButtonTextColor = UIColor.white
         pinAppearance?.logoutButtonFont = UIFont.textStyle2
-        pinAppearance?.logoutLabelTextColor = UIColor.dark
+        pinAppearance?.logoutLabelTextColor = UIColor.coolGrey
         pinAppearance?.logoutButtonFont = UIFont.textStyle7
         PLPinWindow.defaultInstance().pinAppearance = pinAppearance
     }

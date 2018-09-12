@@ -79,8 +79,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         pinAppearance?.numberButtonTitleColor = UIColor.white
         pinAppearance?.numberButtonStrokeColor = UIColor.white
         pinAppearance?.deleteButtonColor = UIColor.white
-        pinAppearance?.pinFillColor = UIColor.coolGrey
+        pinAppearance?.pinFillColor = UIColor.clear
         pinAppearance?.pinHighlightedColor = UIColor.white
+        pinAppearance?.pinFillBorderColor = UIColor.white
+        pinAppearance?.pinHighlightedBorderColor = UIColor.white
         pinAppearance?.titleColor = UIColor.white
         pinAppearance?.titleFont = UIFont.textStyle
         pinAppearance?.messageColor = UIColor.white

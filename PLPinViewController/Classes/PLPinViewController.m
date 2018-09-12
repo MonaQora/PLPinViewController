@@ -119,8 +119,10 @@
     [self.deleteButton setTintColor:appearance.deleteButtonColor];
     
     id dotAppearance = [PLPinDot appearanceWhenContainedInInstancesOfClasses:@[[UIStackView class]]];
-    [dotAppearance setUnselectedBorderColor:[UIColor clearColor]];
-    [dotAppearance setHighlightedBorderColor:[UIColor clearColor]];
+    
+    [dotAppearance setUnselectedBorderColor:appearance.pinFillBorderColor];
+    [dotAppearance setHighlightedBorderColor:appearance.pinHighlightedBorderColor];
+    
     [dotAppearance setSelectedBorderColor:appearance.pinHighlightedColor];
     
     [dotAppearance setUnselectedColor:appearance.pinFillColor];

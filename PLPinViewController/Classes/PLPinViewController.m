@@ -109,10 +109,12 @@
         [button setTitleColor:appearance.numberButtonTitleColor forState:UIControlStateNormal];
         [button setTitleColor:appearance.numberButtonTitleColor forState:UIControlStateSelected];
         [button setTitleColor:appearance.numberButtonTitleColor forState:UIControlStateHighlighted];
-        
+        [button setBackgroundColor:appearance.numberButtonBackgroundColor];
         [button.titleLabel setFont:appearance.numberButtonFont];
         button.borderColor = [PLPinWindow defaultInstance].pinAppearance.numberButtonStrokeColor;
         button.borderWidth = [PLPinWindow defaultInstance].pinAppearance.numberButtonStrokeWitdh;
+        button.backgroundColor = [PLPinWindow defaultInstance].pinAppearance.numberButtonBackgroundColor;
+        //button.showsTouchWhenHighlighted = YES;
         [button setNeedsDisplay];
     }
     
@@ -122,9 +124,7 @@
     
     [dotAppearance setUnselectedBorderColor:appearance.pinFillBorderColor];
     [dotAppearance setHighlightedBorderColor:appearance.pinHighlightedBorderColor];
-    
     [dotAppearance setSelectedBorderColor:appearance.pinHighlightedColor];
-    
     [dotAppearance setUnselectedColor:appearance.pinFillColor];
     [dotAppearance setHighlightedColor:appearance.pinHighlightedColor];
     [dotAppearance setSelectedColor:appearance.pinHighlightedColor];

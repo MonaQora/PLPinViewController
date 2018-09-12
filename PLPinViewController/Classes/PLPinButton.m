@@ -52,9 +52,15 @@
     self.layer.cornerRadius = cornerRadius;
 }
 
+- (void) setBackgroundColor:(UIColor *)backgroundColor
+{
+    _backgroundColor = backgroundColor;
+    self.layer.backgroundColor = _backgroundColor.CGColor;
+}
+
 - (void) setHighlighted:(BOOL)highlighted {
     [super setHighlighted:highlighted];
-    self.backgroundColor = (highlighted) ?  self.borderColor: [UIColor clearColor];
+    self.backgroundColor = (highlighted) ?  [UIColor clearColor]:  self.borderColor;
 }
 
 @end

@@ -11,6 +11,7 @@
 @interface PLPinButton : UIButton
 
 @property (nonatomic,strong) UIColor *borderColor UI_APPEARANCE_SELECTOR;
+@property (nonatomic,strong) UIColor *backgroundColor UI_APPEARANCE_SELECTOR;
 @property (nonatomic) CGFloat borderWidth UI_APPEARANCE_SELECTOR;
 @property (nonatomic) CGFloat cornerRadius UI_APPEARANCE_SELECTOR;
 

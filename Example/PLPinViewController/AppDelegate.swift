@@ -75,9 +75,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     private func setupAppearance() {
         let pinAppearance = PLPinAppearance.default()
         pinAppearance?.backgroundColor = UIColor.tealish
-        pinAppearance?.numberButtonColor = UIColor.coolGrey
+        
+        pinAppearance?.numberButtonColor = UIColor.tealish
+        pinAppearance?.numberButtonBackgroundColor = UIColor.aquaMarine
         pinAppearance?.numberButtonTitleColor = UIColor.white
-        pinAppearance?.numberButtonStrokeColor = UIColor.white
+        pinAppearance?.numberButtonStrokeColor = UIColor.aquaMarine
+        
         pinAppearance?.deleteButtonColor = UIColor.white
         pinAppearance?.pinFillColor = UIColor.clear
         pinAppearance?.pinHighlightedColor = UIColor.white

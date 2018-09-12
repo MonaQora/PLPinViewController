@@ -31,6 +31,7 @@
     self.numberButtonColor = defaultColor;
     self.numberButtonTitleColor = [UIColor blackColor];
     self.numberButtonStrokeColor = defaultColor;
+    self.numberButtonBackgroundColor = defaultColor;
     self.numberButtonStrokeWitdh = 0.8f;
     self.numberButtonFont = defaultFont;
     

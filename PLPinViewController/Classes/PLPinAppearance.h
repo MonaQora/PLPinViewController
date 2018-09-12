@@ -13,6 +13,7 @@
 + (instancetype)defaultAppearance;
 
 @property (nonatomic, strong) UIColor *numberButtonColor;
+@property (nonatomic, strong) UIColor *numberButtonBackgroundColor;
 @property (nonatomic, strong) UIColor *numberButtonTitleColor;
 @property (nonatomic, strong) UIColor *numberButtonStrokeColor;
 @property (nonatomic, assign) CGFloat numberButtonStrokeWitdh;
